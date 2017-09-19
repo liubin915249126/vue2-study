@@ -1,0 +1,26 @@
+{
+  "name": "'",
+  "version": "1.0.0",
+  "description": "vue 的webpack配置",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liubin915249126/webpack-vue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liubin915249126/webpack-vue/issues"
+  },
+  "homepage": "https://github.com/liubin915249126/webpack-vue#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "vue": "^2.4.4"
+  }
+}
