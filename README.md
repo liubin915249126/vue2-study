@@ -77,3 +77,21 @@ npm install html-webpack-plugin --save-dev
 再次运行即可看到效果
 ![效果图](https://github.com/liubin915249126/webpack-vue/blob/master/image/index1.png)
 >
+
+#### 5.安装babel
+>
+在使用.vue文件之前先要安装babel(将es6语法转化为es5)
+```
+    npm install babel-core babel-loader babel-plugin-transform-runtime babel-preset-es2015
+    babel-preset-stage-0 babel-runtime --save-dev 
+```
+项目根目录新建.babelrc文件、配置：
+```
+    {
+    "presets": ["es2015", "stage-0"],
+    "plugins": ["transform-runtime"]
+    }
+```
+>
+#### 6.vue-loader 和vue文件
+[参考文献](http://www.jianshu.com/p/a5361bff1cd8)
