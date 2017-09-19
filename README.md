@@ -74,4 +74,5 @@ npm install html-webpack-plugin --save-dev
     resolve: { alias: { 'vue': 'vue/dist/vue.js' } }
 ```
 再次运行即可看到效果
+![效果图](https://github.com/liubin915249126/webpack-vue/blob/master/image/index1.png)
 >
