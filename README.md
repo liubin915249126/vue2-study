@@ -67,6 +67,7 @@ npm install html-webpack-plugin --save-dev
 ```
    <div id="main">
       <h3>{{message}}</h3>
+   </div>   
 ```
 执行webpack打包运行index.html(打包的文件)报错，经查在webpack.config.js里面配置：
 ```
