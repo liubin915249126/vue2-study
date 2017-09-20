@@ -10,6 +10,13 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
     },
+    module: {
+        loaders: [
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.vue$/, loader: 'vue-loader' }]
+    },
+    // vue: { loaders: { js: 'babel' } },
+
     plugins: [
         new HtmlWebpackPlugin({
             title: 'react 学习',

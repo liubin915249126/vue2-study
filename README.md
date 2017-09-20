@@ -116,7 +116,27 @@ npm install html-webpack-plugin --save-dev
 >
 #### 7.安装vue-loader处理.vue的文件 
 >
-
+安装loader 处理.css,.vue文件
+```
+npm install css-loader style-loader vue-loader vue-html-loader --save-dev
+```
+配置webpack.config.js
+```
+   ...
+   module:{
+       loaders: [
+           {test: /\.js$/,loader: 'babel-loader',exclude: /node_modules/},
+           {test: /\.vue$/,loader: 'vue-loader'}]
+        },
+    //vue: {loaders: {js: 'babel'}}
+   ...
+```
+配置完运行报错：Cannot find module 'vue-template-compiler'
+安装vue-template-compiler
+```
+cnpm install vue-template-compiler --save-dev
+```
 >
+
 
 [参考文献](http://www.jianshu.com/p/a5361bff1cd8)

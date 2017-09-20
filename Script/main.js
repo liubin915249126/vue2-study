@@ -1,8 +1,7 @@
-import Vue from  'vue';
+import Vue from 'vue';
+import App from './src/index.vue';
 
-var MainCtrl = new Vue({
-    el:'#main',
-    data:{
-        message:'Hello world'
-    }
+new Vue({
+    el: 'body',
+    components: { App }
 })
