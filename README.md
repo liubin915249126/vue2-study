@@ -137,6 +137,53 @@ npm install css-loader style-loader vue-loader vue-html-loader --save-dev
 cnpm install vue-template-compiler --save-dev
 ```
 >
+>
+ 修改index.html:
+ ```
+   <body>
+    <div id="main">
+       <app></app>   
+    </div>
+   </body>
+ ```
+>
+>
+新建src/index.vue:
+```
+  <template>
+    <div class="message">{{ msg }}</div>
+  </template>
+
+    <script>
+        export default {
+        data () {
+            return {
+            msg: 'Hello from vue-loader!'
+            }
+        }
+        }
+    </script>
+
+    <style>
+        .message {
+        color: blue;
+        }
+    </style>
+```
+>
+>
+修改main.js
+```
+    ...
+    import App from './src/index.vue';
+
+    new Vue({
+        el: '#main',
+        components: { App }
+    })
+```
+保存后运行 npm start 即可看到效果
+>
 
 
 [参考文献](http://www.jianshu.com/p/a5361bff1cd8)
