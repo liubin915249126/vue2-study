@@ -77,13 +77,34 @@ npm install html-webpack-plugin --save-dev
 再次运行即可看到效果
 ![效果图](https://github.com/liubin915249126/webpack-vue/blob/master/image/index1.png)
 >
+#### 5.安装webpack-dev-server热更新
+>
+```
+    npm install webpack-dev-server -g
+    npm install webpack-dev-server --save-dev
+    npm install vue-hot-reload-api --save-dev
+```
+ 配置webpack.config.js
+```
+    ...
+    devServer: {
+        historyApiFallback: true,
+    },
+    ...
+```  
+配置package.json里面命令
+```
+    "start":"webpack-dev-server --hot --inline --progress --open"
+```
+执行 npm start 浏览器自动打开页面，更改文件后即可看到页面实时更新
 
-#### 5.安装babel
+> 
+#### 6.安装babel
 >
 在使用.vue文件之前先要安装babel(将es6语法转化为es5)
 ```
-    npm install babel-core babel-loader babel-plugin-transform-runtime babel-preset-es2015
-    babel-preset-stage-0 babel-runtime --save-dev 
+    npm install babel-core babel-loader babel-plugin-transform-runtime --save-dev 
+    npm install babel-preset-stage-0 babel-runtime babel-preset-es2015 --save-dev 
 ```
 项目根目录新建.babelrc文件、配置：
 ```
@@ -93,5 +114,9 @@ npm install html-webpack-plugin --save-dev
     }
 ```
 >
-#### 6.vue-loader 和vue文件
+#### 7.安装vue-loader处理.vue的文件 
+>
+
+>
+
 [参考文献](http://www.jianshu.com/p/a5361bff1cd8)
