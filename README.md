@@ -1,5 +1,17 @@
 # webpack-vue
 
+#### 使用方法
+>
+```
+    git clone https://github.com/liubin915249126/vue2-study.git
+    cd vue2-study
+    
+    npm install //安装依赖包
+    npm start   //启动项目
+``` 
+>
+
+
 #### 0.项目初始化
 >
 cd 'to/your/path' npm init
@@ -183,6 +195,9 @@ cnpm install vue-template-compiler --save-dev
     })
 ```
 保存后运行 npm start 即可看到效果
+![效果图](https://github.com/liubin915249126/webpack-vue/blob/master/image/index2.png)
+
+修改代码，可看到修改后的效果。
 >
 
 
