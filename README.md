@@ -233,7 +233,7 @@ npm install vue-router --save
 中渲染,路由通过 "/:id" 定义参数通过链接 "/about/123"传递参数
 在组件中通过{{$route.params.id}}获取传参
 ```    
-    const routes = [
+const routes = [
     { path: '/index', component: App },
     { path: '/about/:id', component: About ,children:[
         { path: 'child', component: child}
@@ -262,8 +262,8 @@ npm install vue-router --save
 ```
     <div id="main">
         <p>
-            <router-link to="/index">Go to index</router-link>
-            <router-link to="/about/123">Go to about</router-link>
+            <router-link to="/index">index</router-link>
+            <router-link to="/about/123">about</router-link>
             <router-link to="/about/123/child">child router</router-link>
         </p>
         <!-- 路由匹配到的组件将渲染在这里 -->
@@ -273,7 +273,9 @@ npm install vue-router --save
 > 
 >
 6.修改父组件about.vue
+写</template>才发现，只能有一个顶级的HTML标签
 ```
+</template>
     <div>
         <div class="message">{{ msg }}</div>
         <div>
@@ -282,6 +284,40 @@ npm install vue-router --save
         <router-view></router-view>
         </div>
     </div>
+</template>    
 ```
->   
+> 
 
+#### 8.1路由重定向redirect
+>
+```
+routes: [
+    ...
+    { path: '/a', redirect: '/index' }
+  ]
+
+```
+访问/a时将跳转值/index对应的组件
+>
+#### 8.2 路由懒加载
+>
+用vue.js写单页面应用时，会出现打包后的JavaScript包非常大，影响页面加载，我们可以利用路由的懒加载去优化这个问题。将路由写法改为：
+```
+//定义路由
+const routes = [
+    { path: '/index', component: resolve => require(['./src/index.vue'], resolve) },
+    {
+        path: '/about/:id', component: resolve => require(['./src/about.vue'], resolve) ,
+        children:[
+            { path: 'child', component: resolve => require(['./src/children.vue'], resolve)}
+    ]},
+    { path: '/a', redirect: '/index' }
+]
+```
+>
+
+
+>
+参考文献:[vue-router](https://router.vuejs.org/zh-cn/essentials/nested-routes.html) 
+效果图:![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/router.png) 
+>

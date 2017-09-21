@@ -8,10 +8,13 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 //定义路由
 const routes = [
-    { path: '/index', component: App },
-    { path: '/about/:id', component: About ,children:[
-        { path: 'child', component: Child}
-    ]}
+    { path: '/index', component: resolve => require(['./src/index.vue'], resolve) },
+    {
+        path: '/about/:id', component: resolve => require(['./src/about.vue'], resolve) ,
+        children:[
+            { path: 'child', component: resolve => require(['./src/children.vue'], resolve)}
+    ]},
+    { path: '/a', redirect: '/index' }
 ]
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。
