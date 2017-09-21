@@ -2,7 +2,7 @@
 ***
 ### 浏览目录
 >
-[3.安装webpack-html-plugin](https://github.com/liubin915249126/vue2-study#3安装  webpack-html-plugin)   
+[3.安装webpack-html-plugin](https://github.com/liubin915249126/vue2-study#3安装webpack-html-plugin)   
 
 [4安装vue](https://github.com/liubin915249126/vue2-study#4安装vue)   
 
