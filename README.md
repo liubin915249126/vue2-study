@@ -1,4 +1,11 @@
 # webpack-vue
+### 浏览目录
+[3.安装webpack-html-plugin](https://github.com/liubin915249126/vue2-study#3安装webpack-html-plugin)
+[4安装vue](https://github.com/liubin915249126/vue2-study#4安装vue)
+[5安装webpack-dev-server热更新](https://github.com/liubin915249126/vue2-study#5安装webpack-dev-server热更新)
+[6安装babel](https://github.com/liubin915249126/vue2-study#6安装babel)
+[7安装vue-loader处理vue的文件](https://github.com/liubin915249126/vue2-study#7安装vue-loader处理vue的文件)
+[8使用路由vue-router2](https://github.com/liubin915249126/vue2-study#8使用路由vue-router2)
 
 #### 使用方法
 >
@@ -315,8 +322,19 @@ const routes = [
 ]
 ```
 >
-
-
+#### 8.3 js的方法跳转路由
+>
+```
+    // 字符串
+    router.push('home')
+    // 对象
+    router.push({ path: 'home' })
+    // 命名的路由
+    router.push({ name: 'user', params: { userId: 123 }})
+    // 带查询参数，变成 /register?plan=private
+    router.push({ path: 'register', query: { plan: 'private' }})
+```
+>
 >
 参考文献:[vue-router](https://router.vuejs.org/zh-cn/essentials/nested-routes.html) 
 效果图:![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/router.png) 
