@@ -199,6 +199,89 @@ cnpm install vue-template-compiler --save-dev
 
 修改代码，可看到修改后的效果。
 >
+#### 8.使用路由vue-router2
+>
+首先安装 vue-router:
+```
+npm install vue-router --save
+```
+>
 
+>
+修改main.js:
+>
 
-[参考文献](http://www.jianshu.com/p/a5361bff1cd8)
+>
+   1.引入APP,about两个组件导入router组件
+   引入子组件Child
+```
+    import App from './src/index.vue';
+    import About from './src/about.vue';
+    import Child from './src/children.vue' 
+    import VueRouter from 'vue-router';
+
+    Vue.use(VueRouter)
+```  
+>
+
+>
+2.定义路由：
+嵌套路由用children:[]存放,子组件在父组件的
+```
+<router-view></router-view>
+```
+中渲染,路由通过 "/:id" 定义参数通过链接 "/about/123"传递参数
+在组件中通过{{$route.params.id}}获取传参
+```    
+    const routes = [
+    { path: '/index', component: App },
+    { path: '/about/:id', component: About ,children:[
+        { path: 'child', component: child}
+    ]}
+]
+```
+>
+>
+ 3. 创建 router 实例，然后传 `routes` 配置
+```    
+    const router = new VueRouter({
+        routes // （缩写）相当于 routes: routes
+    })
+```    
+>
+>
+4. 创建和挂载根实例。
+```
+    const app = new Vue({
+        router
+    }).$mount('#main')
+```
+>
+>
+5.修改index.html文件
+```
+    <div id="main">
+        <p>
+            <router-link to="/index">Go to index</router-link>
+            <router-link to="/about/123">Go to about</router-link>
+            <router-link to="/about/123/child">child router</router-link>
+        </p>
+        <!-- 路由匹配到的组件将渲染在这里 -->
+        <router-view></router-view>
+    </div>
+```
+> 
+>
+6.修改父组件about.vue
+```
+    <div>
+        <div class="message">{{ msg }}</div>
+        <div>
+        <span>传递的参数为：{{ $route.params.id }}</span>
+
+        <router-view></router-view>
+        </div>
+    </div>
+```
+>   
+

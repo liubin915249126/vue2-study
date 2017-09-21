@@ -31,3 +31,26 @@ cnpm install --save-dev copy-webpack-plugin
 ```
 作用：把public 里面的内容全部拷贝到编译目录
 >
+#### 区分开发环境与生产环境
+>
+```
+if (process.env.NODE_ENV === 'production') {
+  module.exports.devtool = '#source-map'
+  // http://vue-loader.vuejs.org/en/workflow/production.html
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin()
+    // 根据模块调用次数，给模块分配ids，常被调用的ids分配更短的id，使得ids可预测，降低文件大小，该模块推荐使用
+  ])
+}
+```
+> 
