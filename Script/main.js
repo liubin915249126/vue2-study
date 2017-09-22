@@ -1,8 +1,10 @@
 import Vue from 'vue';
+import VueRouter from 'vue-router';
+
 import App from './src/index.vue';
 import About from './src/about.vue';
-import Child from './src/children.vue' 
-import Vuex from 'vuex';
+import Child from './src/children.vue'; 
+
 //引入store
 import store from './store.js'
 
@@ -21,7 +23,7 @@ const routes = [
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。
 const router = new VueRouter({
-    routes // （缩写）相当于 routes: routes
+    routes 
 })
 // 4. 创建和挂载根实例。
 // 记得要通过 router 配置参数注入路由，
