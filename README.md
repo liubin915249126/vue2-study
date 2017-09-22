@@ -347,3 +347,11 @@ const routes = [
 参考文献:[vue-router](https://router.vuejs.org/zh-cn/essentials/nested-routes.html) 
 效果图:![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/router.png) 
 >
+
+#### 9.vuex的应用
+>
+安装vuex
+```
+npm install vuex --save
+```
+>
