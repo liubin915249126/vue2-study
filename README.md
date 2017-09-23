@@ -13,7 +13,10 @@
 [7安装vue-loader处理vue的文件](https://github.com/liubin915249126/vue2-study#7安装vue-loader处理vue的文件)   
 
 [8使用路由vue-router2](https://github.com/liubin915249126/vue2-study#8使用路由vue-router2)
+
+[9.1vuex的基本应用](https://github.com/liubin915249126/vue2-study#9vuex的应用)
 >
+
 ***
 #### 使用方法
 >
@@ -393,8 +396,12 @@ npm install vuex --save
 ```
 >
 >
-在main.js里面注入store
+在main.js里面注入store;
 ```
+    ...
+    //引入store
+    import store from './store.js'
+    ...
     const app = new Vue({
         router,
         store
@@ -431,5 +438,4 @@ npm install vuex --save
     }
     </script>
 ```
-
 >
