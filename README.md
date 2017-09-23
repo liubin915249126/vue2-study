@@ -355,3 +355,81 @@ const routes = [
 npm install vuex --save
 ```
 >
+
+##### 9.1基本用法：
+>
+新建store.js文件：
+```
+        import Vue from 'vue';
+        import Vuex from 'vuex';
+
+        Vue.use(Vuex)
+        //创建Store实例
+        const store = new Vuex.Store({
+            // 存储状态值
+            state: {
+                count:1
+        },
+            // 状态值的改变方法,操作状态值
+            // 提交mutations是更改Vuex状态的唯一方法
+            mutations: {
+                increment(state){
+                    state.count++;
+                },
+                decrement(state){
+                    state.count--;
+                }
+        },
+            // 在store中定义getters（可以认为是store的计算属性）。Getters接收state作为其第一个函数
+            getters: {
+                
+        },
+            actions: {
+                
+        }
+        })
+        // 要改变状态值只能通过提交mutations来完成
+        export default store;
+```
+>
+>
+在main.js里面注入store
+```
+    const app = new Vue({
+        router,
+        store
+    }).$mount('#main')
+```
+>
+>
+新建count.vue文件，并新建路由指向count组件参照[vue-router的使用](https://segmentfault.com/a/1190000011298261)。count.vue文件：
+```
+    <template>
+    <div>
+        <div>{{$store.state.count}}</div>
+        <div>
+        <span @click="increment">increment</span>
+        <span @click="decrement">decrement</span>
+        </div>
+    </div>
+    </template>
+    <style>
+    </style>
+    <script>
+    export default {
+        data(){
+            return {};
+        },
+        methods:{
+            increment(){
+                this.$store.commit('increment')  
+            },
+            decrement(){
+                this.$store.commit('decrement')  
+            }
+        }
+    }
+    </script>
+```
+
+>

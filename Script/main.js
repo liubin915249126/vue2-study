@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
+//引入组件
 import App from './src/index.vue';
 import About from './src/about.vue';
 import Child from './src/children.vue'; 
+import Count from './src/count.vue'; 
 
 //引入store
 import store from './store.js'
@@ -18,6 +19,7 @@ const routes = [
         children:[
             { path: 'child', component: resolve => require(['./src/children.vue'], resolve)}
     ]},
+    { path: '/Count', component: resolve => require(['./src/count.vue'], resolve)},
     { path: '/a', redirect: '/index' }
 ]
 // 3. 创建 router 实例，然后传 `routes` 配置
