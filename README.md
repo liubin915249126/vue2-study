@@ -14,7 +14,9 @@
 
 [8使用路由vue-router2](https://github.com/liubin915249126/vue2-study#8使用路由vue-router2)
 
-[9.1vuex的基本应用](https://github.com/liubin915249126/vue2-study#9vuex的应用)
+[9.1vuex的基本应用](https://github.com/liubin915249126/vue2-study#9vuex的应用)  
+
+[9.2state的拆分](https://github.com/liubin915249126/vue2-study#92用module拆分state)
 >
 
 ***
@@ -440,6 +442,7 @@ count.vue文件：
     </script>
 ```
 >
+***
 #### 9.2用Module拆分state
 >
 由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。
@@ -447,5 +450,27 @@ count.vue文件：
 > 
 >
 新建moduleA.js,moduleB.js
-
+[moduleA](https://github.com/liubin915249126/vue2-study/blob/master/Script/moduleA.js)
+[moduleB](https://github.com/liubin915249126/vue2-study/blob/master/Script/moduleB.js)
+并修改store.js:
+```
+...
+import moduleA from './moduleA';
+import moduleB from './moduleB';
+...
+Vue.use(Vuex)
+//创建Store实例
+const store = new Vuex.Store({
+    modules:{
+        moduleA, moduleB //es6的写法，合并模块
+    }
+})
+...
+```
+在组件里面想访问到state需要用到
+```
+    $store.state.moduleA.count
+    $store.state.moduleB.Name
+```
+mutations里面修改state的方法依然不变 
 >
