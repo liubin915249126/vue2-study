@@ -409,7 +409,8 @@ npm install vuex --save
 ```
 >
 >
-新建count.vue文件，并新建路由指向count组件参照[vue-router的使用](https://segmentfault.com/a/1190000011298261)。count.vue文件：
+新建count.vue文件，并新建路由指向count组件参照[vue-router的使用](https://segmentfault.com/a/1190000011298261)。
+count.vue文件：
 ```
     <template>
     <div>
@@ -438,4 +439,13 @@ npm install vuex --save
     }
     </script>
 ```
+>
+#### 9.2用Module拆分state
+>
+由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。
+为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter
+> 
+>
+新建moduleA.js,moduleB.js
+
 >

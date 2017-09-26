@@ -1,9 +1,11 @@
 <template>
   <div>
-     <div>{{$store.state.count}}</div>
+     <div>{{$store.state.moduleA.count}}</div>
+     <div>{{$store.state.moduleB.name}}</div>
      <div>
      <span @click="increment">increment</span>
      <span @click="decrement">decrement</span>
+     <span @click="change">change</span>
      </div>
   </div>
 </template>
@@ -23,7 +25,10 @@
               debugger;
               console.log(this.$store.state.count)
               this.$store.commit('decrement')  
-          }
+          },
+          change(){
+              this.$store.commit('change') 
+          } 
       }
   }
 </script>
