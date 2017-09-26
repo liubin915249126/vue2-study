@@ -441,6 +441,8 @@ count.vue文件：
     }
     </script>
 ```
+效果图：
+![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/vuex1.gif)
 >
 ***
 #### 9.2用Module拆分state
@@ -472,5 +474,7 @@ const store = new Vuex.Store({
     $store.state.moduleA.count
     $store.state.moduleB.Name
 ```
+效果图：
+![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/vuex2.gif)
 mutations里面修改state的方法依然不变 
 >
