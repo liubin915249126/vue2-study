@@ -450,8 +450,8 @@ count.vue文件：
 > 
 >
 新建moduleA.js,moduleB.js
-[moduleA](https://github.com/liubin915249126/vue2-study/blob/master/Script/moduleA.js)
-[moduleB](https://github.com/liubin915249126/vue2-study/blob/master/Script/moduleB.js)
+#### [moduleA](https://github.com/liubin915249126/vue2-study/blob/master/Script/moduleA.js)
+#### [moduleB](https://github.com/liubin915249126/vue2-study/blob/master/Script/moduleB.js)
 并修改store.js:
 ```
 ...
