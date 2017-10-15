@@ -564,7 +564,7 @@ mutations里面修改state的方法依然不变
   对于简单的父子组件或是同属同一父组件的兄弟组件之间的通信，vue提供了方法,没必要用到vuex
 >
 >
-父组件向子组件传值：
+##### 父组件向子组件传值：
 父组件：
 ```
     <component-A :logo="logoMsg"></component-A> //logoMsg是父组件data里的值
@@ -585,7 +585,7 @@ mutations里面修改state的方法依然不变
 ```
 >
 >
-子组件调用父组件方法并向父组件传值：
+##### 子组件调用父组件方法并向父组件传值：
 父组件：
 ```
    
@@ -613,7 +613,7 @@ mutations里面修改state的方法依然不变
 ![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/component.gif)
 >
 >
-兄弟组件之间传值:在B组件修改父组件数据时。选择修改传给A组件的数据即可。
+##### 兄弟组件之间传值:在B组件修改父组件数据时。选择修改传给A组件的数据即可。
 效果图：
 ![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/dataBrother.gif)
 >
