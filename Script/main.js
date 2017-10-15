@@ -19,7 +19,8 @@ const routes = [
         children:[
             { path: 'child', component: resolve => require(['./src/children.vue'], resolve)}
     ]},
-    { path: '/Count', component: resolve => require(['./src/count.vue'], resolve)},
+    { path: '/count', component: resolve => require(['./src/count.vue'], resolve)},
+    { path: '/component', component: resolve => require(['./src/component.vue'], resolve) },
     { path: '/a', redirect: '/index' }
 ]
 // 3. 创建 router 实例，然后传 `routes` 配置
