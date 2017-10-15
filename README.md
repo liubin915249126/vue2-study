@@ -587,7 +587,9 @@ mutations里面修改state的方法依然不变
 ```
 >
 >
+
 ##### 子组件调用父组件方法并向父组件传值：
+
 父组件：
 ```
    
@@ -615,7 +617,41 @@ mutations里面修改state的方法依然不变
 ![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/component.gif)
 >
 >
+
 ##### 兄弟组件之间传值:在B组件修改父组件数据时。选择修改传给A组件的数据即可。
+
 效果图：
 ![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/dataBrother.gif)
+>
+
+#### 事件总线：不相关组件之间传递数据
+>
+bus.js文件：
+```
+   import Vue from 'vue'
+   export default new Vue()
+```
+>
+>
+组件B $emit触发事件: 
+``` 
+  import Bus from './bus.js' 
+  ...  
+   byBus:function(){
+           Bus.$emit('byBus',this.byBusData)
+        }
+```  
+>
+>
+  组件A $on接受事件传递数据
+```
+    ...
+    data(){
+    },
+    created(){
+       Bus.$on('byBus',(data)=>{
+           this.busData = data
+       })
+    },
+```  
 >

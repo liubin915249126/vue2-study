@@ -13,19 +13,26 @@
                    v-on:click="toBrother"
             />
         </div>
+         <div>
+            <input type="button"
+                   value="send Data byBus"
+                   v-on:click="byBus"
+            />
+        </div>
    </div>
 </template>
 
 <script>
-    import Vue from 'vue'
-    // let Vue = new Vue;
+    import Vue from 'vue';
+    import Bus from './bus.js'    
     export default Vue.component('my-component', {
             template: '#componentB ',
             data(){
                 return {
                       msg: 'component-B',
                       toParentData:'data from componentB',
-                      toBrotherData:'data from brotherB'
+                      toBrotherData:'data from brotherB',
+                      byBusData:'data from Bus'
                     }
             },
             methods:{
@@ -34,6 +41,9 @@
                    },
                    toBrother:function(){
                        this.$emit('toBrother',this.toBrotherData)
+                   },
+                   byBus:function(){
+                       Bus.$emit('byBus',this.byBusData)
                    }
             }
     })

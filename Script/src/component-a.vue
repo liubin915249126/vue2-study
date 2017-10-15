@@ -2,6 +2,7 @@
    <div class="componentA">
       <span>{{`${msg}:`}}</span>
       <div>{{logo}}</div>
+      <div>{{busData}}</div>
       <input type="button" 
              value="send Data To Parent"
              v-on:click="toParent"
@@ -10,12 +11,19 @@
 </template>
 
 <script>
+    import Bus from './bus.js'
     export default {
     data () {
         return {
            msg: 'component-A',
-           data1:'data from componentA'
+           data1:'data from componentA',
+           busData:''
         } 
+    },
+    created(){
+       Bus.$on('byBus',(data)=>{
+           this.busData = data
+       })
     },
     props:["logo"],
     methods:{
