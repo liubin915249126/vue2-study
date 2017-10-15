@@ -653,5 +653,7 @@ bus.js文件：
            this.busData = data
        })
     },
-```  
+```
+效果图：[效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/bus.gif)  
 >
+#### 更复杂的数据传递就要用到[vuex](https://github.com/liubin915249126/vue2-study#9vuex的应用)
