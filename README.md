@@ -16,7 +16,9 @@
 
 [9.1vuex的基本应用](https://github.com/liubin915249126/vue2-study#9vuex的应用)  
 
-[9.2state的拆分](https://github.com/liubin915249126/vue2-study#92用module拆分state)
+[9.2state的拆分](https://github.com/liubin915249126/vue2-study#92用module拆分state)   
+
+[10组件化,及组件间传值](https://github.com/liubin915249126/vue2-study#10vue组件化及组件间传值)
 >
 
 ***
