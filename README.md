@@ -608,3 +608,7 @@ mutations里面修改state的方法依然不变
     }
 ```
 >
+>
+效果图：
+![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/component.gif)
+>

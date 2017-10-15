@@ -7,6 +7,12 @@
                    v-on:click="toParent"
             />
         </div>
+         <div>
+            <input type="button"
+                   value="send Data to brotherA"
+                   v-on:click="toBrother"
+            />
+        </div>
    </div>
 </template>
 
@@ -18,12 +24,16 @@
             data(){
                 return {
                       msg: 'component-B',
-                      toParentData:'data from componentB'
+                      toParentData:'data from componentB',
+                      toBrotherData:'data from brotherB'
                     }
             },
             methods:{
                    toParent:function(){
                        this.$emit('toParent',this.toParentData)
+                   },
+                   toBrother:function(){
+                       this.$emit('toBrother',this.toBrotherData)
                    }
             }
     })

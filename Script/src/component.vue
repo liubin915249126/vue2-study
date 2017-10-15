@@ -3,7 +3,10 @@
    <div class="message">父子组件测试</div>
    <component-A :logo="logoMsg" @toParent="componenta"></component-A>
    <div>{{data1}}</div>
-   <component-B  @toParent="componenta"></component-B>
+   <component-B  
+        @toParent="componenta"
+        @toBrother = "changeA" 
+    ></component-B>
   </div>  
 </template>
 
@@ -24,6 +27,9 @@
      methods:{
          componenta:function(data){
             this.data1 = data
+         },
+         changeA:function(data){
+           this.logoMsg = data
          }
      }
     }
