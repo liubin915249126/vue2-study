@@ -1,19 +1,35 @@
 <template>
-   <div class="message">{{ msg }}</div>
+   <div class="componentA">
+      <span>{{`${msg}:`}}</span>
+      <div>{{logo}}</div>
+      <input type="button" 
+             value="send Data To Parent"
+             v-on:click="toParent"
+            />
+   </div>
 </template>
 
 <script>
     export default {
     data () {
         return {
-        msg: 'component-A'
+           msg: 'component-A',
+           data1:'data from componentA'
+        } 
+    },
+    props:["logo"],
+    methods:{
+        toParent:function(){
+            this.$emit('toParent',this.data1)
         }
-     }
+    }
     }
 </script>
 
 <style>
-    .message {
-    color: blue;
+    .componentA {
+        border:1px solid #333;
+        width:fit-content;
+        padding:5px;
     }
 </style>

@@ -478,3 +478,133 @@ const store = new Vuex.Store({
 ![效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/vuex2.gif)
 mutations里面修改state的方法依然不变 
 >
+
+#### 10.Vue组件化及组件间传值
+##### 10.1 Vue组件化
+>
+ 组件 (Component) 是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素，Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以表现为用 is 特性进行了扩展的原生 HTML 元素。
+>
+>
+组件[A](https://github.com/liubin915249126/vue2-study/blob/master/Script/src/component-a.vue)写法：
+```
+   <template>
+   <div class="componentA">
+   ...
+   </div>
+</template>
+<script>
+    export default {
+    data () {
+        return {
+           msg: 'component-A',
+        } 
+    }
+    }
+</script>
+<style>
+  
+</style>
+```
+>
+>
+组件[B](https://github.com/liubin915249126/vue2-study/blob/master/Script/src/component-b.vue)写法：
+```
+   <template>
+   <div class="message" id="componentB">
+        ...
+   </div>
+</template>
+
+<script>
+    import Vue from 'vue'
+    export default Vue.component('my-component', {
+            template: '#componentB ',
+            data(){
+                return {
+                      msg: 'component-B',
+                    }
+            }
+    })
+</script>
+<style>
+</style>
+```
+>
+>
+在父组件[component](https://github.com/liubin915249126/vue2-study/blob/master/Script/src/component.vue)
+分别引用挂在
+```
+   <template>
+  <div>
+   <component-A ></component-A>
+   <component-B></component-B>
+  </div>  
+</template>
+
+<script>
+    import componentA from './component-a.vue';
+    import componentB from './component-b.vue'
+    export default {
+    data () {
+        return {
+        }
+     },
+     components:{
+         "component-A":componentA,
+         "component-B":componentB
+     }
+    }
+</script>
+<style>
+</style>
+```
+>
+##### 10.2组件间传值
+>
+  对于简单的父子组件或是同属同一父组件的兄弟组件之间的通信，vue提供了方法,没必要用到vuex
+>
+>
+父组件向子组件传值：
+父组件：
+```
+    <component-A :logo="logoMsg"></component-A> //logoMsg是父组件data里的值
+```
+子组件：
+```
+   <template>
+   <div class="componentA">
+      <div>{{logo}}</div>
+   </div>
+</template>
+   ...
+   data(){
+
+   }
+   props:["logo"],
+   ...
+```
+>
+>
+子组件调用父组件方法并向父组件传值：
+父组件：
+```
+   
+   <component-A :logo="logoMsg" @toParent="componenta"></component-A>
+   ...
+    methods:{
+         componenta:function(data){ //data就是子组件传递过来的值
+            this.data1 = data
+         }
+     }
+```
+>
+>
+子组件：
+```
+     methods:{
+        toParent:function(){
+            this.$emit('toParent',this.data1) //调用父组件toParent方法，并传递参数
+        }
+    }
+```
+>

@@ -1,8 +1,9 @@
 <template>
   <div>
    <div class="message">父子组件测试</div>
-   <component-A></component-A>
-   <component-B></component-B>
+   <component-A :logo="logoMsg" @toParent="componenta"></component-A>
+   <div>{{data1}}</div>
+   <component-B  @toParent="componenta"></component-B>
   </div>  
 </template>
 
@@ -12,12 +13,18 @@
     export default {
     data () {
         return {
-       
+          logoMsg:'data from parent component',
+          data1:'' 
         }
      },
      components:{
          "component-A":componentA,
          "component-B":componentB
+     },
+     methods:{
+         componenta:function(data){
+            this.data1 = data
+         }
      }
     }
 </script>
