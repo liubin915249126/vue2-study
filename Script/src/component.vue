@@ -9,6 +9,11 @@
     ></component-B>
     <div>
       <button v-on:click="request">请求数据</button>
+      <ul v-if="listData&&listData.length>0" v-for="item in listData">
+         <li>
+            {{item}}
+         </li>
+      </ul>
     </div>
   </div>  
 </template>
@@ -22,7 +27,8 @@
     data () {
         return {
           logoMsg:'data from parent component',
-          data1:'' 
+          data1:'' ,
+          listData:null
         }
      },
      components:{
@@ -39,8 +45,8 @@
          request:async function(){
              let options ={method:"get",url:'/'}
              try{
-                 let res =await request(options);
-                 console.log(res)
+                 let {data} =await request(options);
+                 this.listData = data
              }catch(err){
                  console.log(err) 
              }

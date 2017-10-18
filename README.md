@@ -717,10 +717,10 @@ package.json里面设置命令:"server":"node server index.js"
 封装一个request函数，所有的请求都通过request函数,便于对于请求统一处理
 ```
     import axios from 'axios'
-    let BASE_URL = 'localhost:3000'
+    let BASE_URL = 'http1://localhost:3000'
     export default function request(data){
     let options = {...data} 
-    options.url = `${BASE_URL}${data}`
+    options.url = `${BASE_URL}${data.url}`
     return axios(options)
             .then(checkStatus)
             .then(parseJSON)
