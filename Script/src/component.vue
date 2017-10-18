@@ -7,12 +7,17 @@
         @toParent="componenta"
         @toBrother = "changeA" 
     ></component-B>
+    <div>
+      <button v-on:click="request">请求数据</button>
+    </div>
   </div>  
 </template>
 
 <script>
     import componentA from './component-a.vue';
-    import componentB from './component-b.vue'
+    import componentB from './component-b.vue';
+    import request from './request.js';
+    import axios from 'axios';
     export default {
     data () {
         return {
@@ -30,6 +35,16 @@
          },
          changeA:function(data){
            this.logoMsg = data
+         },
+         request:async function(){
+             let options ={method:"get",url:'/'}
+             try{
+                 let res =await request(options);
+                 console.log(res)
+             }catch(err){
+                 console.log(err) 
+             }
+            
          }
      }
     }

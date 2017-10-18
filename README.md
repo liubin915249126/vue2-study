@@ -708,3 +708,23 @@ package.json里面设置命令:"server":"node server index.js"
 ```
 >
 #### 13 使用axios访问后台接口
+>
+安装axios：
+```
+   npm install axios 
+```  
+在根目录新建server/request.js
+封装一个request函数，所有的请求都通过request函数,便于对于请求统一处理
+```
+    import axios from 'axios'
+    let BASE_URL = 'localhost:3000'
+    export default function request(data){
+    let options = {...data} 
+    options.url = `${BASE_URL}${data}`
+    return axios(options)
+            .then(checkStatus)
+            .then(parseJSON)
+            .catch()
+    }
+```
+>
