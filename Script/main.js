@@ -6,10 +6,15 @@ import About from './src/about.vue';
 import Child from './src/children.vue'; 
 import Count from './src/count.vue'; 
 
+//引入element-ui
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+
 //引入store
 import store from './store.js'
 
 Vue.use(VueRouter)
+Vue.use(ElementUI)
 
 //定义路由
 const routes = [

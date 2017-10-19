@@ -711,7 +711,7 @@ package.json里面设置命令:"server":"node server index.js"
 >
 安装axios：
 ```
-   npm install axios 
+   npm install axios --save
 ```  
 在根目录新建server/request.js
 封装一个request函数，所有的请求都通过request函数,便于对于请求统一处理
@@ -726,5 +726,37 @@ package.json里面设置命令:"server":"node server index.js"
             .then(parseJSON)
             .catch()
     }
+```
+>
+#### 14.使用elementui
+>
+安装:npm i element-ui -S 
+引入：
+```
+    import ElementUI from 'element-ui'
+    import 'element-ui/lib/theme-default/index.css'
+    Vue.use(ElementUI)
+```
+使用：使用前配置css,file加载器
+安装style-loader,css-loader
+```
+   npm install css-loader style-loader file-loader --save-dev
+```
+```
+   {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
+        loader: 'file-loader',
+        query: {
+          name: '[name].[ext]?[hash]'
+        }
+      }
 ```
 >

@@ -14,6 +14,14 @@
             {{item}}
          </li>
       </ul>
+    </div> 
+    <div>
+     <el-date-picker
+        v-model="value1"
+        type="date"
+        placeholder="选择日期"
+        :picker-options="pickerOptions0">
+    </el-date-picker>
     </div>
   </div>  
 </template>
@@ -28,7 +36,8 @@
         return {
           logoMsg:'data from parent component',
           data1:'' ,
-          listData:null
+          listData:null,
+          value1:null
         }
      },
      components:{
