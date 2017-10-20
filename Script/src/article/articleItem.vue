@@ -1,5 +1,5 @@
  <template>
-   <router-link to="`/articleinfo/${index}`" class="article-item">
+   <router-link :to="{ name:'articleinfo',params:{id:index}}" class="article-item">
      <div>
         <div class="imgWrap">
           <img src=""/>
