@@ -8,20 +8,31 @@
 </head>
 <body>
     <div id="main">
-        <p>
-            <!-- 使用 router-link 组件来导航. -->
-            <!-- 通过传入 `to` 属性指定链接. -->
-            <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
-            <router-link to="/index">index</router-link>
-            <router-link to="/about/123">about</router-link>
-            <router-link to="/about/123/child">child router</router-link>
-            <router-link to="/a">redirect</router-link>
-            <router-link to="/count">count</router-link>
-            <router-link to="/component">component</router-link>
-        </p>
-        <!-- 路由出口 -->
-        <!-- 路由匹配到的组件将渲染在这里 -->
-        <router-view></router-view>
+        <el-row>
+            <el-col :span="4">
+                <div>
+                    <!-- 使用 router-link 组件来导航. -->
+                    <!-- 通过传入 `to` 属性指定链接. -->
+                    <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+                    <div><router-link to="/index">index</router-link></div>
+                    <div><router-link to="/about/123">about</router-link></div>
+                    <div><router-link to="/about/123/child">child router</router-link></div>
+                    <div><router-link to="/a">redirect</router-link></div>
+                    <div><router-link to="/count">count</router-link></div>
+                    <div><router-link to="/component">component</router-link></div>
+                    <div>
+                        <router-link to="/article">article</router-link>
+                    </div>
+                </div>
+            </el-col>
+            <el-col :span="20">
+                <!-- 路由出口 -->
+                <!-- 路由匹配到的组件将渲染在这里 -->
+                <router-view></router-view>
+            </el-col>
+        </el-row>
+        
+       
     </div>
 </body>
 </html>

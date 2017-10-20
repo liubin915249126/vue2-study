@@ -5,6 +5,7 @@ import App from './src/index.vue';
 import About from './src/about.vue';
 import Child from './src/children.vue'; 
 import Count from './src/count.vue'; 
+import Article from './src/article/index.vue';
 
 //引入element-ui
 import ElementUI from 'element-ui'
@@ -26,6 +27,7 @@ const routes = [
     ]},
     { path: '/count', component: resolve => require(['./src/count.vue'], resolve)},
     { path: '/component', component: resolve => require(['./src/component.vue'], resolve) },
+    { path: '/article', component: resolve => require(['./src/article/index.vue'], resolve) },
     { path: '/a', redirect: '/index' }
 ]
 // 3. 创建 router 实例，然后传 `routes` 配置

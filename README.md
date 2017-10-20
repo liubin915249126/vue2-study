@@ -760,3 +760,20 @@ package.json里面设置命令:"server":"node server index.js"
       }
 ```
 >
+#### 15.使用less
+>
+安装:
+```
+    cnpm install less less-loader --save-dev
+```
+使用：
+```
+<style lang='less'>
+   .articleWrap{
+     .articleTop{
+       color:red;
+     }
+   }
+</style>
+```
+>
