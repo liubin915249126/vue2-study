@@ -1,13 +1,13 @@
  <template>
-   <router-link to="">
-     <div class="article-item">
+   <router-link to="`/articleinfo/${index}`" class="article-item">
+     <div>
         <div class="imgWrap">
           <img src=""/>
         </div>
         <div class="item-content">
-           <p>{{item.title}}</p>
+           <p>{{title}}</p>
            <p></p>
-           <p>{{item.content}}</p>
+           <p>{{content}}</p>
         </div>
      </div>
    </router-link>  
@@ -22,16 +22,28 @@
                       
                     }
             },
-            props:['item']
+            props:['title','content',"index"]
     })
 </script>
 <style lang="less">
    .article-item{
-       padding-left:230px;
-      .imgWrap{
-        width:220px;
-        height:155px;
-        float:left;
-      }
+       color:#000;
+       text-decoration: none; 
+       &>div{
+        min-height:155px;
+        padding-left:240px;
+        position:relative;
+        .imgWrap{
+          width:220px;
+          height:155px;
+          position:absolute;
+          left:0;
+          border:1px solid #eee;
+        }
+        .item-content{
+          min-height:100px;
+        }
+       }
+       
    }
 </style>

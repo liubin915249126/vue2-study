@@ -10,11 +10,16 @@
             <h3>{{ item }}</h3>
         </el-carousel-item>
        </el-carousel>
-       <div class="article-list" v-for="item in articleList">
-         <article-item :data = 'item'></article-item>
+       <div class="article-list" v-for="(item,index) in articleList">
+         <article-item 
+            :title = 'item.title'
+            :content = 'item.content'
+            :index = 'index'
+            ></article-item>
        </div>
     </el-col>
     <el-col :span="7" class="content-right">
+    <div class="rightInner">
      <div class="num">
       <el-row>
          <el-col :span="12">
@@ -51,8 +56,10 @@
             :on-icon-click="handleIconClick">
         </el-input>
        </el-col>
-     </el-row> 
+     </el-row>
+    </div>  
     </el-col>
+
   </el-row>
   </div>
 </template>
