@@ -7,7 +7,7 @@
     <el-row class="list-content">
        <el-col :span="5" class="content-left">
          <div class="btnwrap">
-            <el-button type="primary">发布文章</el-button>
+            <el-button type="primary" @click="showDialog">发布文章</el-button>
          </div>
          <div class="filterwrap">
            <span>筛选</span>
@@ -85,12 +85,23 @@
           </div>
        </el-col>
     </el-row>
+    <el-dialog title="新增文章" :visible.sync="visible">
+     <dialog-content></dialog-content>
+    <div slot="footer" class="dialog-footer">
+        <el-button @click="visible = false">取 消</el-button>
+        <el-button type="primary" @click="visible = false">确 定</el-button>
+    </div>
+  </el-dialog>
   </div>
 </template>
 
 <script>
   //引入样式文件
   import './style/index.less'
+  //引入模拟数据
+  import {tabledata} from './data.js'
+  //引入弹窗组件
+  import dialogContent from './dialogContent.vue';   
   export default {
       data(){
           return{
@@ -101,13 +112,19 @@
               labelvalue:'',
               typevalue:'',
               typeoptions:[],
-              coldata:[]
-              table:[]
+              coldata:[],
+              tableData:tabledata,
+              visible:false//控制弹窗显示与隐藏
           }
+      },
+      components:{
+        "dialog-content":dialogContent
       },
       methods:{
           keysearchFun:function(){
-
+          },
+          showDialog:function(){
+              this.visible = true
           }
       } 
   } 

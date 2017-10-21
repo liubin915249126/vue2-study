@@ -2,13 +2,18 @@
     background:#eceff4;
     padding:10px;
     height: 100%;
+    box-sizing:border-box;
     .el-breadcrumb{
         margin:0 0 10px 0;
+    }
+    .list-content{
+      height:calc(~"100% - 23px");
     }
     .content-left{
         border:1px solid #E0E4E8;
         background: #fff;
         border-radius:5px;
+        height: 100%;
         .btnwrap{
             text-align: center;
             padding:20px 0;
@@ -26,11 +31,16 @@
     }
     .content-right{
         padding-left:10px;
+        height: 100%;
         .right-inner{
+            height:calc(~"100% - 31px");
             background: #fff;
             border:1px solid #E0E4E8;
             border-radius:5px;
             padding:15px;
+            .title{
+              margin-bottom:10px;
+            }
         }
     }
 }
