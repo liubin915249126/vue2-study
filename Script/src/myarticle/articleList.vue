@@ -85,8 +85,10 @@
           </div>
        </el-col>
     </el-row>
-    <el-dialog title="新增文章" :visible.sync="visible">
+    <el-dialog title="发布文章" :visible.sync="visible">
+     
      <dialog-content></dialog-content>
+
     <div slot="footer" class="dialog-footer">
         <el-button @click="visible = false">取 消</el-button>
         <el-button type="primary" @click="visible = false">确 定</el-button>

@@ -57,6 +57,16 @@
         </el-input>
        </el-col>
      </el-row>
+     <div>
+      <span>热门文章</span>
+      <div v-for="(item,index) in hotArticleList">
+         <hotarticle-item 
+            :title = 'item.title'
+            :content = 'item.content'
+            :index = 'index' 
+         ></hotarticle-item>
+      </div>
+     </div>
     </div>  
     </el-col>
 
@@ -69,20 +79,24 @@
   import './style/index.less';
   //导入组件
   import articleItem from './articleItem.vue';
+  import hotArticleItem from './articleHotItem.vue'
   //导入数据
-  import {articleList} from './data.js'
+  import {articleList,hotArticleList} from './data.js'
   export default {
      data(){
        return {
          input2: '',
          articleList:[],
+         hotArticleList:[]
        }
      },
      components:{
-        "article-item":articleItem
+        "article-item":articleItem,
+        "hotarticle-item":hotArticleItem
      },
      created(){
-         this.articleList = articleList
+         this.articleList = articleList;
+         this.hotArticleList= hotArticleList
      },
      methods: {
         handleIconClick(ev) {
