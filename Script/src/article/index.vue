@@ -57,15 +57,21 @@
         </el-input>
        </el-col>
      </el-row>
-     <div>
+     <div class="hotarticlewrap">
       <span>热门文章</span>
-      <div v-for="(item,index) in hotArticleList">
-         <hotarticle-item 
+      <hotarticle-item v-for="(item,index) in hotArticleList"
             :title = 'item.title'
             :content = 'item.content'
             :index = 'index' 
-         ></hotarticle-item>
-      </div>
+      ></hotarticle-item>
+     </div>
+     <div class="labelwrap">
+       <span>热门标签</span>
+       <div>
+         <el-tag type="primary">标签一</el-tag>
+         <el-tag type="primary">标签二</el-tag>
+         <el-tag type="primary">标签三</el-tag>
+       </div>
      </div>
     </div>  
     </el-col>

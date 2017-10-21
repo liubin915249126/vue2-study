@@ -26,24 +26,5 @@
     })
 </script>
 <style lang="less">
-   .article-item{
-       color:#000;
-       text-decoration: none; 
-       &>div{
-        min-height:155px;
-        padding-left:240px;
-        position:relative;
-        .imgWrap{
-          width:220px;
-          height:155px;
-          position:absolute;
-          left:0;
-          border:1px solid #eee;
-        }
-        .item-content{
-          min-height:100px;
-        }
-       }
-       
-   }
+   
 </style>
