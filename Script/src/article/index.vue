@@ -44,7 +44,7 @@
      </div>
      <el-row>
        <el-col :span="8">
-         <router-link to="">
+         <router-link to="/articlelist">
            <el-button type="primary">我的文章</el-button>
          </router-link> 
        </el-col>

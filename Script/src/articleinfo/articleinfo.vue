@@ -13,6 +13,9 @@
       <div class="articleinfo">
         文章内容
       </div>
+      <div class="commont">
+         
+      </div>
     </div>
   </div>     
 </template>

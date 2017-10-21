@@ -29,6 +29,7 @@ const routes = [
     { path: '/component', component: resolve => require(['./src/component.vue'], resolve) },
     { path: '/article', component: resolve => require(['./src/article/index.vue'], resolve) },
     { path: '/articleinfo/:id', name:'articleinfo',component: resolve => require(['./src/articleinfo/articleinfo.vue'], resolve) },
+    { path: '/articlelist', name: 'articlelist', component: resolve => require(['./src/myarticle/articleList.vue'], resolve) },
     { path: '/a', redirect: '/index' }
 ]
 // 3. 创建 router 实例，然后传 `routes` 配置
