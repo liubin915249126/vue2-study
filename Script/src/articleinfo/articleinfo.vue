@@ -14,7 +14,7 @@
         文章内容
       </div>
       <div class="commont">
-         
+         <VueEditor v-model="content"></VueEditor>
       </div>
     </div>
   </div>     
@@ -23,9 +23,15 @@
 <script> 
   //引入样式表
   import './style/index.less'
+  import { VueEditor } from 'vue2-editor' 
   export default{
       data(){
-          return{}
+          return{
+            content:'<h1>评论的内容</h1>'
+          }
+      },
+      components:{
+        VueEditor
       }
   }
 </script>
