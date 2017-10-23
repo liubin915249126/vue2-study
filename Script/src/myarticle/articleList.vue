@@ -85,7 +85,11 @@
           </div>
        </el-col>
     </el-row>
-    <el-dialog title="发布文章" :visible.sync="visible">
+    <el-dialog 
+      title="发布文章" 
+      :visible.sync="visible"
+      size="large"
+    >
      
      <dialog-content></dialog-content>
 

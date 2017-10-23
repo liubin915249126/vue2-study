@@ -777,3 +777,13 @@ package.json里面设置命令:"server":"node server index.js"
 </style>
 ```
 >
+#### 16.文章系统
+>
+1.路由跳转传参：
+```
+<router-link :to="{ name:'articleinfo',params:{id:index}}"></router-link> 
+```
+2.使用富文本编辑器：vue2-editor
+  安装：cnpm install vue2-editor --save 
+  使用：import { VueEditor } from 'vue2-editor'
+>
