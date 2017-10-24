@@ -51,8 +51,16 @@
     }
 </script>
 
-<style>
-    .message {
-    color: blue;
+<style lang="less"> 
+    .el-menu{
+      .el-menu-item{
+       a{
+           display:inline-block;
+           width:100%;
+           color:#333;
+           text-decoration:none;
+       }
+      }
     }
+    
 </style>
