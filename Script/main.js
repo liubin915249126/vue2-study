@@ -19,18 +19,30 @@ Vue.use(ElementUI)
 
 //定义路由
 const routes = [
-    { path: '/index', component: resolve => require(['./src/index.vue'], resolve) },
     {
-        path: '/about/:id', component: resolve => require(['./src/about.vue'], resolve) ,
-        children:[
-            { path: 'child', component: resolve => require(['./src/children.vue'], resolve)}
-    ]},
-    { path: '/count', component: resolve => require(['./src/count.vue'], resolve)},
-    { path: '/component', component: resolve => require(['./src/component.vue'], resolve) },
-    { path: '/article', component: resolve => require(['./src/article/index.vue'], resolve) },
-    { path: '/articleinfo/:id', name:'articleinfo',component: resolve => require(['./src/articleinfo/articleinfo.vue'], resolve) },
-    { path: '/articlelist', name: 'articlelist', component: resolve => require(['./src/myarticle/articleList.vue'], resolve) },
-    { path: '/a', redirect: '/index' }
+      path: '/',redirect: '/login',
+    },
+    {
+        path: '/login', component: resolve => require(['./src/login.vue'], resolve)
+    },
+    { 
+        path: '/main', component: resolve => require(['./src/index.vue'], resolve), redirect: '/main/articlelist', 
+        children: [
+            {
+                path: '/main/about/:id', component: resolve => require(['./src/about.vue'], resolve),
+                children: [
+                    { path: 'child', component: resolve => require(['./src/children.vue'], resolve) }
+                ]
+            },
+            { path: '/main/count', component: resolve => require(['./src/count.vue'], resolve) },
+            { path: '/main/component', component: resolve => require(['./src/component.vue'], resolve) },
+            { path: '/main/article', component: resolve => require(['./src/article/index.vue'], resolve) },
+            { path: '/main/articleinfo/:id', name: 'articleinfo', component: resolve => require(['./src/articleinfo/articleinfo.vue'], resolve) },
+            { path: '/main/articlelist', name: 'articlelist', component: resolve => require(['./src/myarticle/articleList.vue'], resolve) },
+            { path: '/main/apiconfig', name: 'apiconfig', component: resolve => require(['./src/apiconfig/index.vue'], resolve) },
+            { path: '/main/a', redirect: '/main' }
+       ]
+    }
 ]
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。
