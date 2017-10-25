@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
-let BASE_URL = 'http://localhost:3000';
-
+//let BASE_URL = 'http://localhost:3000';
+let BASE_URL = 'http://192.168.1.183:8090'
 axios.interceptors.request.use(config => {
     // loading
     return config
@@ -16,19 +16,64 @@ axios.interceptors.response.use(response => {
 })
 
 
-export default function request(data){
-  let options = {...data} 
-  options.url = `${BASE_URL}${data.url}`
-  return axios(options)
-         .then(checkStatus)
-         .then(checkCode)
-         .catch((e)=>{
-             return new Promise((resolve, reject)=>{
-                 reject(e)
-             })
-         })
-}
+// export default function request(data){
+//   let data1 = data.data    
+//   data.data = qs.stringify(data1)
+//   let options = {...data} 
+//   options.url = `${BASE_URL}${data.url}`
+//   return axios(options)
+//          .then(checkStatus)
+//          .then(checkCode)
+//          .catch((e)=>{
+//              return new Promise((resolve, reject)=>{
+//                  reject(e)
+//              })
+//          })
+// }
 
+export default {
+    post(url, data) {
+        return axios({
+            method: 'post',
+            baseURL: BASE_URL,
+            url,
+            data: qs.stringify(data),
+            timeout: 10000,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        }).then(
+            (response) => {
+                return checkStatus(response)
+            }
+            ).then(
+            (res) => {
+                return checkCode(res)
+            }
+            )
+    },
+    get(url, params) {
+        return axios({
+            method: 'get',
+            baseURL: BASE_URL,
+            url,
+            params, // get 请求时带的参数
+            timeout: 10000,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        }).then(
+            (response) => {
+                return checkStatus(response)
+            }
+            ).then(
+            (res) => {
+                return checkCode(res)
+            }
+            )
+    }
+}
 // export function checkStatus(response) {
 //     if (response.status >= 200 && response.status < 300) {
 //         return response;

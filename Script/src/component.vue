@@ -30,7 +30,7 @@
     import componentA from './component-a.vue';
     import componentB from './component-b.vue';
     import request from './request.js';
-    import axios from 'axios';
+    //import axios from 'axios';
     export default {
     data () {
         return {

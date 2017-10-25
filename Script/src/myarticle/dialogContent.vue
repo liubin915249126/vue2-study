@@ -3,7 +3,7 @@
   <el-row> 
    <el-col :span="1">标题:</el-col>
    <el-col :span="23">
-     <el-input v-model="input" placeholder="请输入标题"></el-input>
+     <el-input v-model="title" placeholder="请输入标题"></el-input>
    </el-col>
    </el-row>
   <el-row>
@@ -15,7 +15,7 @@
   <el-row>
     <el-col :span="1">标签:</el-col>
    <el-col :span="23">
-     <el-input v-model="input" placeholder="请输入关键字"></el-input>
+     <el-input v-model="keyWords" placeholder="请输入关键字"></el-input>
    </el-col>
   </el-row>
    <div class="avatarWrap">
@@ -38,15 +38,37 @@
 
 <script>
    import { VueEditor } from 'vue2-editor' 
+   import request from '.././request.js'; 
    export default {
        data(){
            return {
               content:'<h1>请输入文章内容</h1>',
-              input:''
+              input:'',
+              title:'',//文章标题
+              keyWords:'',
            }
        },
        components:{
            VueEditor
+       },
+       methods:{
+           submit:async function(){
+               let data1 = {
+                   title:this.title,
+                   htmlContent:this.content,
+                   topState:1,
+                   showState:1,
+                   state:1,
+                   customTypeID:1,
+                   organizationStructureCodes:'Me',
+                   labels:[],
+                   code:"00000000-0000-0000-0000-000000000000",
+                   enclosures:[],
+                   thumbnailPath:''
+                   }
+               let url = '/api/services/Article/Article/CreateArticle';
+               let {data} = await request.post(url,data1)
+           }
        }
    }
 </script>

@@ -27,7 +27,8 @@
 ```
     git clone https://github.com/liubin915249126/vue2-study.git
     cd vue2-study
-    
+    安装cnpm镜像
+    npm install -g cnpm --registry=https://registry.npm.taobao.org
     npm install //安装依赖包
     npm start   //启动项目
 ``` 

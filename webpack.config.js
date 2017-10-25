@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const config = {
     entry: './Script/main.js', //项目入口文件
     output: {                    //输出编译后文件地址及文件名
         path: path.resolve(__dirname, 'dist'),
@@ -9,6 +9,7 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
+        port:9001
     },
     module: {
         loaders: [
@@ -48,3 +49,29 @@ module.exports = {
     ],
     resolve: { alias: { 'vue': 'vue/dist/vue.js' } }
 };
+if (process.env.NODE_ENV === 'production') {
+    config.plugins = (config.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production'),
+            },
+            IS_PRODUCTION: true
+        }),
+        /*new webpack.optimize.UglifyJsPlugin({
+            compress: {warnings: false},
+            sourceMap: false
+        }),*/
+    ]);
+}
+else {
+    config.plugins = (config.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env':
+            {
+                'NODE_ENV': JSON.stringify('development'),
+            },
+            IS_PRODUCTION: false
+        }),
+    ]);
+}
+module.exports = config

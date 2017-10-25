@@ -90,12 +90,10 @@
       :visible.sync="visible"
       size="large"
     >
-     
-     <dialog-content></dialog-content>
-
+    <dialog-content ref="dialogcontent"></dialog-content>
     <div slot="footer" class="dialog-footer">
         <el-button @click="visible = false">取 消</el-button>
-        <el-button type="primary" @click="visible = false">确 定</el-button>
+        <el-button type="primary" @click="commit">确 定</el-button>
     </div>
   </el-dialog>
   </div>
@@ -103,11 +101,12 @@
 
 <script>
   //引入样式文件
-  import './style/index.less'
+  import './style/index.less';
   //引入模拟数据
-  import {tabledata} from './data.js'
+  import {tabledata} from './data.js';
   //引入弹窗组件
-  import dialogContent from './dialogContent.vue';   
+  import dialogContent from './dialogContent.vue';
+  import request from '.././request.js';  
   export default {
       data(){
           return{
@@ -123,6 +122,30 @@
               visible:false//控制弹窗显示与隐藏
           }
       },
+      mounted:async function(){
+         try{
+           let data1 ={
+              endDate:"2017-10-25",
+              pageIndex:1,
+              pageSize:10,
+              startDate:"1970-01-01"
+           }
+          //  let data1 = {
+          //    "beginDate": "2017-10-25T02:59:15.623Z",
+          //    "endDate": "2017-10-25T02:59:15.623Z"
+          //  } 
+           let options = {
+             url:'/api/services/Article/Article/GetArticleListByPage',
+             //url:'/api/services/payroll/setofbook/GetAllList',
+             method:'post',
+             data:data1
+             } 
+           let {data} =await request.post(options.url,data1)
+           console.log(data) 
+         }catch(err){
+            console.log(err) 
+         }
+      },
       components:{
         "dialog-content":dialogContent
       },
@@ -131,6 +154,10 @@
           },
           showDialog:function(){
               this.visible = true
+          },
+          commit:function(){
+            this.visible = false;
+            this.$refs.dialogcontent.submit()
           }
       } 
   } 
