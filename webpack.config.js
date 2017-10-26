@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -5,7 +6,8 @@ const config = {
     entry: './Script/main.js', //项目入口文件
     output: {                    //输出编译后文件地址及文件名
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/bundle.js'
+        filename: 'js/bundle.js',
+        
     },
     devServer: {
         historyApiFallback: true,

@@ -40,8 +40,8 @@ export default {
             data: qs.stringify(data),
             timeout: 10000,
             headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                 'X-Requested-With': 'XMLHttpRequest',
+                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
             }
         }).then(
             (response) => {

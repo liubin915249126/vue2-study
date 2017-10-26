@@ -788,3 +788,42 @@ package.json里面设置命令:"server":"node server index.js"
   安装：cnpm install vue2-editor --save 
   使用：import { VueEditor } from 'vue2-editor'
 >
+#### 17区分生产环境与开发环境
+>
+使用cross-env：设置开发环境
+安装：cnpm install cross-env --save-dev
+配置命令：
+```
+    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --progress --open",
+    "build":"cross-env NODE_ENV=production webpack"
+```
+修改webpack配置：
+```
+   if (process.env.NODE_ENV === 'production') {
+    config.plugins = (config.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production'),
+            },
+            IS_PRODUCTION: true
+        }),
+        /*new webpack.optimize.UglifyJsPlugin({
+            compress: {warnings: false},
+            sourceMap: false
+        }),*/
+    ]);
+}
+else {
+    config.plugins = (config.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env':
+            {
+                'NODE_ENV': JSON.stringify('development'),
+            },
+            IS_PRODUCTION: false
+        }),
+    ]);
+}
+```
+在程序里面通过：process.env.NODE_ENV 获取当前环境变量
+> 

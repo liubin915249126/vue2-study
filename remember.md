@@ -31,7 +31,7 @@ cnpm install --save-dev copy-webpack-plugin
 ```
 作用：把public 里面的内容全部拷贝到编译目录
 >
-#### 区分开发环境与生产环境
+#### 3.区分开发环境与生产环境
 >
 ```
 if (process.env.NODE_ENV === 'production') {
@@ -54,3 +54,21 @@ if (process.env.NODE_ENV === 'production') {
 }
 ```
 > 
+#### 4. 路由懒加载
+>
+```
+    chunkFilename: 'js/[name][chunkhash].js',
+```
+>
+#### 5.打包公共文件
+>
+```
+    new webpack.optimize.CommonsChunkPlugin({
+                name: 'vendor',
+                minChunks: function (module) {
+                   // 该配置假定你引入的 vendor 存在于 node_modules 目录中
+                   return module.context && module.context.indexOf('node_modules') !== -1;
+                }
+            })
+```  
+>
