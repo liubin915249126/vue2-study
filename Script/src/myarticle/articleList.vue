@@ -125,10 +125,12 @@
       mounted:async function(){
          try{
            let data1 ={
-              endDate:"2017-10-25",
+              // endDate:"2017-10-25",
               pageIndex:1,
               pageSize:10,
-              startDate:"1970-01-01"
+              // startDate:"1970-01-01",
+              customArticleTypeID:1,
+              // userID:''
            }
           //  let data1 = {
           //    "beginDate": "2017-10-25T02:59:15.623Z",
@@ -136,7 +138,8 @@
           //  } 
            let options = {
              url:'/api/services/Article/Article/GetArticleListByPage',
-             //url:'/api/services/payroll/setofbook/GetAllList',
+            //  url:'/api/services/payroll/setofbook/GetAllList',
+            //  url:'/api/services/Article/Collection/GetCollectionListByPage',
              method:'post',
              data:data1
              } 
