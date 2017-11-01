@@ -57,14 +57,17 @@
                    title:this.title,
                    htmlContent:this.content,
                    topState:1,
-                   showState:1,
+                   showState:3,
                    state:1,
                    customTypeID:1,
                    organizationStructureCodes:'Me',
                    labels:[],
                    code:"00000000-0000-0000-0000-000000000000",
-                   enclosures:[],
-                   thumbnailPath:''
+                   enclosures:[{articleID:0,createDateTime:"2017-07-25T03:01:58.077Z",
+                                createUser:0,createUserName:"string",name:"string",
+                                path:"string",vId:0}],
+                   thumbnailPath:'',
+                   txtContent:this.content.match(/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/)[0]
                    }
                let url = '/api/services/Article/Article/CreateArticle';
                let {data} = await request.post(url,data1)

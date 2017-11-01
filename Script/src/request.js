@@ -41,11 +41,14 @@ export default {
             method: 'post',
             baseURL: BASE_URL,
             url,
-            data: qs.stringify(data),
+            data: JSON.stringify(data),
             timeout: 10000,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                'Content-Type':"application/json",
+                // 'Accept': 'application/json',
+                // "charset":"utf-8"
             }
         }).then(
             (response) => {

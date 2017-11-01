@@ -13,7 +13,11 @@
    </div>
    <el-row class="len-content">
     <div class="len-content-left">
-                <el-menu :collapse="isCollapse">
+                <el-menu 
+                    :collapse="isCollapse"
+                    background-color="#545c64"
+                    text-color="#fff"
+                    active-text-color="#ffd04b">
                     <!-- 使用 router-link 组件来导航. -->
                     <!-- 通过传入 `to` 属性指定链接. -->
                     <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->

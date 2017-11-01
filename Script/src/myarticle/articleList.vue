@@ -68,18 +68,34 @@
                     stripe
                     style="width: 100%">
                     <el-table-column
-                    prop="date"
-                    label="日期"
+                    label="发布日期"
+                    prop="ReleaseDateTime"
+                    width="180">
+                     <template slot-scope="scope">
+                       {{scope}}
+                     </template>
+                    </el-table-column>
+                    <el-table-column
+                    prop="Title"
+                    label="文章标题"
                     width="180">
                     </el-table-column>
                     <el-table-column
-                    prop="name"
-                    label="姓名"
-                    width="180">
+                    prop="State"
+                    label="状态">
+                    </el-table-column>
+
+                    <el-table-column
+                    prop="comment"
+                    label="人气/点赞/评论">
                     </el-table-column>
                     <el-table-column
-                    prop="address"
-                    label="地址">
+                    prop="CustomTypeName"
+                    label="类型">
+                    </el-table-column>
+                    <el-table-column
+                    prop="VId"
+                    label="操作">
                     </el-table-column>
                 </el-table>
           </div>
@@ -88,7 +104,7 @@
     <el-dialog 
       title="发布文章" 
       :visible.sync="visible"
-      size="large"
+      width="75%"
     >
     <dialog-content ref="dialogcontent"></dialog-content>
     <div slot="footer" class="dialog-footer">
@@ -122,32 +138,8 @@
               visible:false//控制弹窗显示与隐藏
           }
       },
-      mounted:async function(){
-         try{
-           let data1 ={
-              // endDate:"2017-10-25",
-              pageIndex:1,
-              pageSize:10,
-              // startDate:"1970-01-01",
-              customArticleTypeID:1,
-              // userID:''
-           }
-          //  let data1 = {
-          //    "beginDate": "2017-10-25T02:59:15.623Z",
-          //    "endDate": "2017-10-25T02:59:15.623Z"
-          //  } 
-           let options = {
-             url:'/api/services/Article/Article/GetArticleListByPage',
-            //  url:'/api/services/payroll/setofbook/GetAllList',
-            //  url:'/api/services/Article/Collection/GetCollectionListByPage',
-             method:'post',
-             data:data1
-             } 
-           let {data} =await request.post(options.url,data1)
-           console.log(data) 
-         }catch(err){
-            console.log(err) 
-         }
+      mounted:function(){
+         this.loadTableData()
       },
       components:{
         "dialog-content":dialogContent
@@ -157,6 +149,31 @@
           },
           showDialog:function(){
               this.visible = true
+          },
+          loadTableData:async function(){
+            try{
+              let data1 ={
+                  // endDate:"2017-10-25",
+                  pageIndex:1,
+                  pageSize:10,
+                  // startDate:"1970-01-01",
+                  customArticleTypeID:1,
+                  // userID:''
+              }
+              let options = {
+                    url:'/api/services/Article/Article/GetArticleListByPage',
+                    // url:'/api/services/Article/Article/GetArticleByID',
+                    // url:'/api/services/payroll/setofbook/GetAllList',
+                    // url:'/api/services/Article/Collection/GetCollectionListByPage',
+                method:'post',
+                data:data1
+                } 
+              let {data} =await request.post(options.url,data1);
+              let tableData = JSON.parse(data.value).Array;
+              this.tableData = tableData
+            }catch(err){
+                console.log(err) 
+            }
           },
           commit:function(){
             this.visible = false;
