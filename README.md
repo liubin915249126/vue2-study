@@ -728,6 +728,8 @@ package.json里面设置命令:"server":"node server index.js"
             .catch()
     }
 ```
+(坑)axios.defaults.withCredentials = true   //请求时带上cookie
+axios请求默认是不加cookie的需要设置
 >
 #### 14.使用elementui
 >
