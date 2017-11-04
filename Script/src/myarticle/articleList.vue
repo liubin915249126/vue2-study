@@ -177,7 +177,7 @@
           },
           commit:function(){
             this.visible = false;
-            this.$refs.dialogcontent.submit()
+            this.$refs.dialogcontent.submit(this.loadTableData)
           }
       } 
   } 

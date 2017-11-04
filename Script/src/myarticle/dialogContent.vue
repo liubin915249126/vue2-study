@@ -52,7 +52,7 @@
            VueEditor
        },
        methods:{
-           submit:async function(){
+           submit:async function(callback){
                let data1 = {
                    title:this.title,
                    htmlContent:this.content,
@@ -67,10 +67,17 @@
                                 createUser:0,createUserName:"string",name:"string",
                                 path:"string",vId:0}],
                    thumbnailPath:'',
-                   txtContent:this.content.match(/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/)[0]
+                //    txtContent:this.content.match(/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/)[0]
+                   txtContent:this.content.match(/[\u4e00-\u9fa5_]+/)[0]
                    }
                let url = '/api/services/Article/Article/CreateArticle';
-               let {data} = await request.post(url,data1)
+               try{
+                   let {data} = await request.post(url,data1)
+                   callback();
+               }catch(error){
+
+               }
+               
            }
        }
    }
