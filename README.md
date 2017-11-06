@@ -18,7 +18,13 @@
 
 [9.2state的拆分](https://github.com/liubin915249126/vue2-study#92用module拆分state)   
 
-[10组件化,及组件间传值](https://github.com/liubin915249126/vue2-study#10vue组件化及组件间传值)
+[10组件化,及组件间传值](https://github.com/liubin915249126/vue2-study#10vue组件化及组件间传值)  
+
+[11.使用nodejs+koa2提供后台接口](https://github.com/liubin915249126/vue2-study#11使用nodejs+koa2提供后台接口)  
+
+[12.设置koa允许前端跨域访问](https://github.com/liubin915249126/vue2-study#12设置koa允许前端跨域访问)  
+
+[13 使用axios访问后台接口](https://github.com/liubin915249126/vue2-study#13使用axios访问后台接口)
 >
 
 ***
@@ -731,6 +737,7 @@ package.json里面设置命令:"server":"node server index.js"
 (坑)axios.defaults.withCredentials = "include"   //请求时带上cookie
 axios请求默认是不加cookie的需要设置
 (坑)当设置请求时带上cookie时后端允许的跨域不能用"*"要说明协议+域名+端口
+请求数据效果图：[效果图](https://github.com/liubin915249126/vue2-study/blob/master/image/getData.gif)
 >
 #### 14.使用elementui
 >

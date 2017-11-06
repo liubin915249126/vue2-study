@@ -19,7 +19,7 @@ app.use(cors({
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
     credentials: true,
-    'Access-Control - Allow - Credentials':true,
+    'Access-Control-Allow-Credentials':true,
     allowMethods: ['GET', 'POST', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
