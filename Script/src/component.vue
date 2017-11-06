@@ -54,7 +54,7 @@
          request:async function(){
              let options ={method:"get",url:'/'}
              try{
-                 let {data} =await request(options);
+                 let {data} =await request.get(options.url);
                  this.listData = data
              }catch(err){
                  console.log(err) 

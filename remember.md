@@ -73,3 +73,6 @@ if (process.env.NODE_ENV === 'production') {
 ```  
 >
 #### 6.webpack命令行工具:webpack-dashboard
+>
+  webpack中文网： https://doc.webpack-china.org/concepts/
+>      

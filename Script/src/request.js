@@ -1,10 +1,10 @@
 import axios from 'axios';
 import qs from 'qs';
 import Vue from 'vue';
-//let BASE_URL = 'http://localhost:3000';
-let BASE_URL = 'http://192.168.1.183:8090'
+let BASE_URL = 'http://localhost:3000';
+// let BASE_URL = 'http://192.168.1.183:8090'
 
-axios.defaults.withCredentials = true   //请求时带上cookie
+axios.defaults.withCredentials = "include" //请求时带上cookie
 
 axios.interceptors.request.use(config => {
     // loading
@@ -70,10 +70,12 @@ export default {
             method: 'get',
             baseURL: BASE_URL,
             url,
+            credentials:false,
             params, // get 请求时带的参数
             timeout: 10000,
             headers: {
-                'X-Requested-With': 'XMLHttpRequest'
+                // 'X-Requested-With': 'XMLHttpRequest',
+                'Content-Type': "application/json",
             }
         }).then(
             (response) => {

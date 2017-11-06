@@ -728,8 +728,9 @@ package.json里面设置命令:"server":"node server index.js"
             .catch()
     }
 ```
-(坑)axios.defaults.withCredentials = true   //请求时带上cookie
+(坑)axios.defaults.withCredentials = "include"   //请求时带上cookie
 axios请求默认是不加cookie的需要设置
+(坑)当设置请求时带上cookie时后端允许的跨域不能用"*"要说明协议+域名+端口
 >
 #### 14.使用elementui
 >

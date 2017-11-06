@@ -14,11 +14,12 @@ app.use(cors({
         if (ctx.url === '/test') {
             return false;
         }
-        return '*';
+        return 'http://localhost:9001';
     },
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
     credentials: true,
+    'Access-Control - Allow - Credentials':true,
     allowMethods: ['GET', 'POST', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
