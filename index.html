@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- 移动端适配 -->
+        <script type="text/javascript">
+            var s = parseInt(window.screen.width) / 414;
+            var vp = '<meta name="viewport" content="width=414, minimum-scale = ' + s + ', maximum-scale = ' + s + ', target-densitydpi=device-dpi">';
+            document.write(vp);
+        </script>
     <title>文章管理系统</title>
     <style type="text/css">
       html,body{
