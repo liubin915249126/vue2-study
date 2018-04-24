@@ -16,7 +16,7 @@
           <el-input v-model="ruleForm.username"></el-input>
        </el-form-item>
        <el-form-item label="密码" prop="password">
-          <el-input v-model="ruleForm.password"></el-input>
+          <el-input v-model="ruleForm.password" type="password"></el-input>
        </el-form-item>
        <el-form-item label="记住密码" prop="rememberMe">
           <el-checkbox v-model="ruleForm.rememberMe"></el-checkbox>
