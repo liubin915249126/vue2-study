@@ -1,12 +1,14 @@
 <template>
 <div class="loginwrap">
     <div v-if="logined">
+      <h3>欢迎回来</h3>  
       <el-button @click="switchlogin">切换账号</el-button>
       <el-button @click="logintomain">登录</el-button>
    </div>
    <el-form v-else
             :model="ruleForm" :rules="rules" ref="ruleForm" 
             label-width="100px" class="demo-ruleForm">
+        <h3>欢迎登录系统</h3>    
        <el-form-item label="租户名" prop="name">
           <el-input v-model="ruleForm.name"></el-input>
        </el-form-item>
@@ -20,7 +22,7 @@
           <el-checkbox v-model="ruleForm.rememberMe"></el-checkbox>
        </el-form-item>
        <el-form-item>
-          <el-button @click="login">登录</el-button> 
+          <el-button @click="login" type="primary">登录</el-button> 
        </el-form-item>
    </el-form>
    
@@ -33,9 +35,9 @@
      data(){
          return{
             ruleForm:{
-                name:'',
-                username:'',
-                password:'',
+                name:'rolename',
+                username:'username',
+                password:'123456',
                 rememberMe:''
             },
             rules:{
@@ -104,6 +106,10 @@
 <style lang="less">
    .loginwrap{
       width:400px;
+      margin: 0 auto;
       border:1px solid #eee;
+      h3{
+        text-align: center;
+      }
    }
 </style>
