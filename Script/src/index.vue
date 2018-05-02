@@ -22,6 +22,16 @@
                     <!-- 通过传入 `to` 属性指定链接. -->
                     <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
                     <el-submenu index="0">
+                        <template slot="title">
+                         <i class="el-icon-menu"></i>
+                          <span>文章系统</span>
+                        </template>
+                        <el-menu-item-group title="文章系统">
+                            <el-menu-item index="1-1"><router-link to="/main/article">article</router-link></el-menu-item>
+                            <el-menu-item index="1-2"> <router-link to="/main/articlelist">my article</router-link></el-menu-item>
+                        </el-menu-item-group>
+                    </el-submenu>
+                    <el-submenu index="1">
                        <template slot="title">
                          <i class="el-icon-menu"></i>
                          <span>其他</span>
@@ -34,17 +44,6 @@
                         <el-menu-item index="0-5"><router-link to="/main/component">component</router-link></el-menu-item>
                        </el-menu-item-group>
                     </el-submenu>
-                    <el-submenu index="1">
-                        <template slot="title">
-                         <i class="el-icon-menu"></i>
-                          <span>文章系统</span>
-                        </template>
-                        <el-menu-item-group title="文章系统">
-                            <el-menu-item index="1-1"><router-link to="/main/article">article</router-link></el-menu-item>
-                            <el-menu-item index="1-2"> <router-link to="/main/articlelist">my article</router-link></el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu>
-                    
                     <el-submenu index="2">
                        <template slot="title">
                         <i class="el-icon-setting"></i>
