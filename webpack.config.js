@@ -8,8 +8,8 @@ const config = {
     entry: './Script/main.js', //项目入口文件
     output: {                    //输出编译后文件地址及文件名
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/bundle.js',
-        
+        filename: 'js/[name].[hash].bundle.js',
+        chunkFilename: 'js/[name][chunkhash].js',
     },
     mode: idProd ?'production':'development',
     devServer: {
@@ -53,7 +53,38 @@ const config = {
         }),
         new VueLoaderPlugin()
     ],
-    resolve: { alias: { 'vue': 'vue/dist/vue.js' } }
+    resolve: { alias: { 'vue': 'vue/dist/vue.js' } },
+    optimization: {
+        runtimeChunk: {
+          name: 'manifest'
+        },
+        // minimizer: true, // [new UglifyJsPlugin({...})]
+        splitChunks:{
+          chunks: 'async',
+          minSize: 30000,
+          minChunks: 1,
+          maxAsyncRequests: 5,
+          maxInitialRequests: 3,
+          name: false,
+          cacheGroups: {
+            vendor: {
+              name: 'vendor',
+              chunks: 'initial',
+              priority: -10,
+              reuseExistingChunk: false,
+              test: /node_modules\/(.*)\.js/
+            },
+            styles: {
+              name: 'styles',
+              test: /\.(scss|css)$/,
+              chunks: 'all',
+              minChunks: 1,
+              reuseExistingChunk: true,
+              enforce: true
+            }
+          }
+        }
+    },
 };
 if (process.env.NODE_ENV === 'production') {
     config.plugins = (config.plugins || []).concat([

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --progress --open",
     "server": "node server index.js",
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env NODE_ENV=production webpack --progress --color --reason"
   },
   "repository": {
     "type": "git",
