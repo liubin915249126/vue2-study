@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const idProd = process.env.NODE_ENV === 'production'
 
 const config = {
     entry: './Script/main.js', //项目入口文件
@@ -9,12 +11,13 @@ const config = {
         filename: 'js/bundle.js',
         
     },
+    mode: idProd ?'production':'development',
     devServer: {
         historyApiFallback: true,
         port:9001
     },
     module: {
-        loaders: [
+        rules: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.vue$/, loader: 'vue-loader' },
             {
@@ -48,6 +51,7 @@ const config = {
             filename: 'index.html',
             template: path.resolve(__dirname, "index.html")
         }),
+        new VueLoaderPlugin()
     ],
     resolve: { alias: { 'vue': 'vue/dist/vue.js' } }
 };

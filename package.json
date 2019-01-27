@@ -29,7 +29,7 @@
     "cross-env": "^5.1.0",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.5",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^3.2.0",
     "koa": "^2.3.0",
     "koa-router": "^7.2.1",
     "koa2-cors": "^2.0.3",
@@ -38,10 +38,10 @@
     "style-loader": "^0.18.2",
     "vue-hot-reload-api": "^2.1.0",
     "vue-html-loader": "^1.2.4",
-    "vue-loader": "^13.0.5",
+    "vue-loader": "^15.6.1",
     "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2"
+    "webpack": "^4.29.0",
+    "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -49,6 +49,7 @@
     "vue": "^2.4.4",
     "vue-router": "^2.7.0",
     "vue2-editor": "^2.0.26",
-    "vuex": "^2.4.0"
+    "vuex": "^2.4.0",
+    "webpack-cli": "^3.2.1"
   }
 }
