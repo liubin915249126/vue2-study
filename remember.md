@@ -76,3 +76,38 @@ if (process.env.NODE_ENV === 'production') {
 >
   webpack中文网： https://doc.webpack-china.org/concepts/
 >      
+#### ios10 下白屏
+```js
+   new UglifyJsPlugin({
+      uglifyOptions: {
+        compress: {
+          warnings: false
+        },
+        mangle: {
+          safari10: true
+        }
+      },
+      sourceMap: config.build.productionSourceMap,
+      parallel: true
+}),
+```
+#### poly-fill
+这是由于IE对promise的支持不好，我们需要安装：babel-polyfill和es6-promise:
+```js
+    yarn add babel-polyfill es6-promise
+    然后在main.js文件中引用:
+
+    import 'babel-polyfill'
+    import Vue from 'vue'
+    import Es6Promise from 'es6-promise'
+    Es6Promise.polyfill()
+    最后 build/webpack.base.conf.js 文件中配置如下：
+
+    module.exports = {
+        entry: {
+        app: ["babel-polyfill", "./src/main.js"]
+        }
+    };
+```
+
+####  Cannot read property 'compilation' of undefined
