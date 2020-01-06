@@ -10,3 +10,4 @@ bundle.js
 .vscode
 /Scripts/dist
 dist
+/dist
