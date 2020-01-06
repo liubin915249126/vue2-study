@@ -40,6 +40,7 @@ const routes = [
             { path: '/main/articleinfo/:id', name: 'articleinfo', component: resolve => require(['./src/articleinfo/articleinfo.vue'], resolve) },
             { path: '/main/articlelist', name: 'articlelist', component: resolve => require(['./src/myarticle/articleList.vue'], resolve) },
             { path: '/main/apiconfig', name: 'apiconfig', component: resolve => require(['./src/apiconfig/index.vue'], resolve) },
+            { path: '/main/draw', name: 'draw', component: resolve => require(['./src/draw/index.vue'], resolve) },
             { path: '/main/a', redirect: '/main' }
        ]
     }
