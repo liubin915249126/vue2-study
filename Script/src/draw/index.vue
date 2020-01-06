@@ -46,8 +46,8 @@ export default {
   },
   mounted() {
     let canvas = this.$refs.canvasF;
-    canvas.height = this.$refs.canvasHW.offsetHeight - 100;
-    canvas.width = this.$refs.canvasHW.offsetWidth - 10;
+    canvas.height = this.$refs.canvasHW.offsetHeight + 100;
+    canvas.width = this.$refs.canvasHW.offsetWidth + 100;
     this.canvasTxt = canvas.getContext("2d");
     this.canvasTxt.strokeStyle = this.color;
     this.canvasTxt.lineWidth = this.linewidth;
