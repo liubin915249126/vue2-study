@@ -1,4 +1,7 @@
-import Vue from 'vue';
+import 'babel-polyfill'
+import Vue from 'vue'
+import Es6Promise from 'es6-promise'
+Es6Promise.polyfill()
 import VueRouter from 'vue-router';
 //引入组件
 import App from './src/index.vue';
@@ -7,44 +10,47 @@ import Child from './src/children.vue';
 import Count from './src/count.vue'; 
 import Article from './src/article/index.vue';
 
-//引入element-ui
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import './public/iconfont.css'
+import 'mint-ui/lib/style.css'
+import { Cell,Popup,Picker,Button,Field } from 'mint-ui';
+import './main.less'
+
+Vue.component(Cell.name, Cell);
+Vue.component(Popup.name, Popup);
+Vue.component(Picker.name, Picker);
+Vue.component(Button.name, Button);
+Vue.component(Field.name, Field);
+
+// //引入element-ui
+// import ElementUI from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css'
 
 //引入store
 import store from './store.js'
 
 Vue.use(VueRouter)
-Vue.use(ElementUI)
+// Vue.use(ElementUI)
 
 //定义路由
 const routes = [
     {
-      path: '/',redirect: '/login',
+      path: '/',redirect: '/payroll_query',
+    },
+    // {
+    //     path: '/login', component: resolve => require(['./src/login.vue'], resolve)
+    // },
+    // {
+    //     path: '/cloud', component: resolve => require(['./src/cloud/index.vue'], resolve)
+    // },
+    {
+        path: '/payroll_detail/:date/:card', component: resolve => require(['./src/payroll/detail.vue'], resolve)
     },
     {
-        path: '/login', component: resolve => require(['./src/login.vue'], resolve)
+        path: '/payroll_bind', component: resolve => require(['./src/payroll/bindcard.vue'], resolve)
     },
-    { 
-        path: '/main', component: resolve => require(['./src/index.vue'], resolve), redirect: '/main/articlelist', 
-        children: [
-            {
-                path: '/main/about/:id', component: resolve => require(['./src/about.vue'], resolve),
-                children: [
-                    { path: 'child', component: resolve => require(['./src/children.vue'], resolve) }
-                ]
-            },
-            { path: '/main/count', component: resolve => require(['./src/count.vue'], resolve) },
-            { path: '/main/component', component: resolve => require(['./src/component.vue'], resolve) },
-            { path: '/main/article', component: resolve => require(['./src/article/index.vue'], resolve) },
-            { path: '/main/articleinfo/:id', name: 'articleinfo', component: resolve => require(['./src/articleinfo/articleinfo.vue'], resolve) },
-            { path: '/main/articlelist', name: 'articlelist', component: resolve => require(['./src/myarticle/articleList.vue'], resolve) },
-            { path: '/main/apiconfig', name: 'apiconfig', component: resolve => require(['./src/apiconfig/index.vue'], resolve) },
-            { path: '/main/draw', name: 'draw', component: resolve => require(['./src/draw/index.vue'], resolve) },
-            { path: '/main/video', name: 'draw', component: resolve => require(['./src/video/index.vue'], resolve) },
-            { path: '/main/a', redirect: '/main' }
-       ]
-    }
+    {
+        path: '/payroll_query', component: resolve => require(['./src/payroll/query.vue'], resolve)
+    },
 ]
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。

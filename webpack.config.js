@@ -1,24 +1,43 @@
 const webpack = require('webpack')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const idProd = process.env.NODE_ENV === 'production'
+const { VueLoaderPlugin } = require('vue-loader');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+
+const isPro = process.env.NODE_ENV == "production"
 
 const config = {
-    entry: './Script/main.js', //项目入口文件
+    entry: {
+        app:["babel-polyfill",'./Script/main.js']
+    }, //项目入口文件
     output: {                    //输出编译后文件地址及文件名
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name].[hash].bundle.js',
-        chunkFilename: 'js/[name][chunkhash].js',
+        filename: 'js/bundle.js',
+        
     },
-    mode: idProd ?'production':'development',
+    // mode:isPro?"production":"development",
     devServer: {
         historyApiFallback: true,
-        port:9001
+        port:9001,
+        proxy: {
+            "/api": {
+              "target": "http://121.41.53.68:8085/api/",
+              "changeOrigin": true,
+              "pathRewrite": { "^/api" : "" }
+            }
+        },
     },
     module: {
         rules: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+            // {
+            //     test: /\.js$/,
+            //     include: [
+            //     //   src,
+            //       path.resolve(__dirname, 'node_modules/webpack-dev-server')
+            //     ],
+            //     loader: 'babel-loader'
+            // },
             { test: /\.vue$/, loader: 'vue-loader' },
             {
                 test: /\.css$/,
@@ -43,7 +62,18 @@ const config = {
         ]
     },
     // vue: { loaders: { js: 'babel' } },
-
+    // optimization: {
+    //     minimizer: [
+    //         new UglifyJsPlugin({
+    //           cache: true,
+    //           parallel: true,
+    //           sourceMap: true,
+    //           mangle: {
+    //             safari10: true
+    //           } // set to true if you want JS source maps
+    //         }),
+    //     ]
+    // },         
     plugins: [
         new HtmlWebpackPlugin({
             title: 'react 学习',
@@ -51,40 +81,9 @@ const config = {
             filename: 'index.html',
             template: path.resolve(__dirname, "index.html")
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
     ],
-    resolve: { alias: { 'vue': 'vue/dist/vue.js' } },
-    optimization: {
-        runtimeChunk: {
-          name: 'manifest'
-        },
-        // minimizer: true, // [new UglifyJsPlugin({...})]
-        splitChunks:{
-          chunks: 'async',
-          minSize: 30000,
-          minChunks: 1,
-          maxAsyncRequests: 5,
-          maxInitialRequests: 3,
-          name: false,
-          cacheGroups: {
-            vendor: {
-              name: 'vendor',
-              chunks: 'initial',
-              priority: -10,
-              reuseExistingChunk: false,
-              test: /node_modules\/(.*)\.js/
-            },
-            styles: {
-              name: 'styles',
-              test: /\.(scss|css)$/,
-              chunks: 'all',
-              minChunks: 1,
-              reuseExistingChunk: true,
-              enforce: true
-            }
-          }
-        }
-    },
+    resolve: { alias: { 'vue': 'vue/dist/vue.js' } }
 };
 if (process.env.NODE_ENV === 'production') {
     config.plugins = (config.plugins || []).concat([
@@ -94,10 +93,15 @@ if (process.env.NODE_ENV === 'production') {
             },
             IS_PRODUCTION: true
         }),
-        /*new webpack.optimize.UglifyJsPlugin({
-            compress: {warnings: false},
-            sourceMap: false
-        }),*/
+        new UglifyJsPlugin({
+            sourceMap: false,
+            uglifyOptions:{
+                compress: {warnings: false},
+                mangle: {
+                    safari10: true
+                }
+            }
+        }),
     ]);
 }
 else {

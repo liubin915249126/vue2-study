@@ -1,8 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 import Vue from 'vue';
-let BASE_URL = 'http://localhost:3000';
-// let BASE_URL = 'http://192.168.1.183:8090'
+import {config} from '../config'
 
 axios.defaults.withCredentials = "include" //请求时带上cookie
 
@@ -39,7 +38,7 @@ export default {
     post(url, data) {
         return axios({
             method: 'post',
-            baseURL: BASE_URL,
+            baseURL: config.baseUrl,
             url,
             data: JSON.stringify(data),
             timeout: 10000,
@@ -68,7 +67,7 @@ export default {
     get(url, params) {
         return axios({
             method: 'get',
-            baseURL: BASE_URL,
+            baseURL: config.baseUrl,
             url,
             credentials:false,
             params, // get 请求时带的参数

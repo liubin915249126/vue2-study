@@ -4,42 +4,23 @@
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- 移动端适配 -->
         <script type="text/javascript">
-            var s = parseInt(window.screen.width) / 414;
-            var vp = '<meta name="viewport" content="width=414, minimum-scale = ' + s + ', maximum-scale = ' + s + ', target-densitydpi=device-dpi">';
+            var s = parseInt(window.screen.width) / 750;
+            var vp = '<meta name="viewport" content="width=750, minimum-scale = ' + s + ', maximum-scale = ' + s + ', target-densitydpi=device-dpi">';
             document.write(vp);
         </script>
-    <title>文章管理系统</title>
+    <title>工资查询系统</title>
     <style type="text/css">
-      html,body{
-        height:100%;
-        margin:0;
+      html,body,div{
         padding:0;
-      }
-      #main,
-      #main>.len-content,
-      #main>.len-content>.len-content-left,
-      #main>.content>.len-content-right{
-          height:100%;
-      }
+        margin:0;
+      
+    }
     </style>
 </head>
 <body>
     <div id="main">
         <router-view></router-view>
     </div>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115451143-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-115451143-1');
-</script>
 </body>
 </html>
