@@ -111,3 +111,8 @@ if (process.env.NODE_ENV === 'production') {
 ```
 
 ####  Cannot read property 'compilation' of undefined
+
+#### post-css 
+yarn add postcss-loader autoprefixer postcss-pxtorem postcss-cssnext -D
+####  [object Object] is not a PostCSS plugin
+https://github.com/postcss/autoprefixer/issues/1359
