@@ -7,7 +7,7 @@ import VueRouter from 'vue-router';
 
 
 import './public/iconfont.css'
-
+import 'vant/lib/index.css';
 import './main.less'
 
 // //引入element-ui
@@ -23,11 +23,8 @@ Vue.use(VueRouter)
 //定义路由
 const routes = [
     {
-      path: '/',redirect: '/payroll_query',
-    },
-    // {
-    //     path: '/payroll_detail/:date/:card', component: resolve => require(['./src/payroll/detail.vue'], resolve)
-    // },
+        path: '/test/rem', component: resolve => require(['./pages/test/rem.vue'], resolve)
+    }
 ]
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。

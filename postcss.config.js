@@ -1,6 +1,6 @@
 module.exports = ({ file }) => {
     let rootValue;
-    if (file && file.dirname && file.dirname.indexOf('vant') > -1) {
+    if (file && file.dirname && file.dirname.indexOf('van') > -1) {
         rootValue = 37.5
     } else {
         rootValue = 75
