@@ -4,6 +4,14 @@
         "stage-0"
     ],
     "plugins": [
-        "transform-runtime"
+        "transform-runtime",
+        [
+            "import",
+            {
+                "libraryName": "vant",
+                "libraryDirectory": "es",
+                "style": true
+            }
+        ]
     ]
 }

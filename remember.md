@@ -116,3 +116,6 @@ if (process.env.NODE_ENV === 'production') {
 yarn add postcss-loader autoprefixer postcss-pxtorem postcss-cssnext -D
 ####  [object Object] is not a PostCSS plugin
 https://github.com/postcss/autoprefixer/issues/1359
+
+#### babel-plugin-import
+yarn add babel-plugin-import -D

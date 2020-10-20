@@ -8,7 +8,7 @@ const isPro = process.env.NODE_ENV == "production"
 
 const config = {
     entry: {
-        app:["babel-polyfill",'./Script/main.js']
+        app:["babel-polyfill",'./src/main.js']
     }, //项目入口文件
     output: {                    //输出编译后文件地址及文件名
         path: path.resolve(__dirname, 'dist'),
