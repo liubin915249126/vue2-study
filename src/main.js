@@ -6,7 +6,6 @@ import VueRouter from 'vue-router';
 //引入组件
 
 
-import './public/iconfont.css'
 import 'vant/lib/index.css';
 import './main.less'
 
@@ -15,7 +14,7 @@ import './main.less'
 // import 'element-ui/lib/theme-chalk/index.css'
 
 //引入store
-import store from './store.js'
+import store from './store/store.js'
 
 Vue.use(VueRouter)
 // Vue.use(ElementUI)
