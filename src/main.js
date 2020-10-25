@@ -3,7 +3,8 @@ import Vue from 'vue'
 import Es6Promise from 'es6-promise'
 Es6Promise.polyfill()
 import VueRouter from 'vue-router';
-//引入组件
+import routes from './router'
+//引入组件routes
 
 
 import 'vant/lib/index.css';
@@ -19,12 +20,7 @@ import store from './store/store.js'
 Vue.use(VueRouter)
 // Vue.use(ElementUI)
 
-//定义路由
-const routes = [
-    {
-        path: '/test/rem', component: resolve => require(['./pages/test/rem.vue'], resolve)
-    }
-]
+
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。
 const router = new VueRouter({
