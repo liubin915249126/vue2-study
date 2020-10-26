@@ -3,13 +3,13 @@ module.exports = ({ file }) => {
     if (file && file.dirname && file.dirname.indexOf('van') > -1) {
         rootValue = 37.5
     } else {
-        rootValue = 75
+        rootValue = 37.5
     }
     return {
         plugins: [
-            require('autoprefixer')({
-                verrideBrowserslist: ["Android 4.1", "iOS 7.1", "Chrome > 31", "ff > 31"]
-            }),
+            // require('autoprefixer')({
+            //     verrideBrowserslist: ["Android 4.1", "iOS 7.1", "Chrome > 31", "ff > 31"]
+            // }),
             require('postcss-cssnext')(),
             require('postcss-pxtorem')({
                 rootValue,  //根元素的font-size大小。

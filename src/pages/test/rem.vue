@@ -21,7 +21,7 @@ export default {
 <style lang="less" scoped>
   .test-wrap{
     .test{
-        font-size:20px;
+      font-size:20px;
     }
   }
 </style>
