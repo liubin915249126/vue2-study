@@ -3,8 +3,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const variables = require('./src/variable.js')
 
 const isPro = process.env.NODE_ENV == "production"
+
 
 const config = {
     entry: {
@@ -15,7 +17,7 @@ const config = {
         filename: 'js/bundle.js',
         
     },
-    // mode:isPro?"production":"development",
+    mode:isPro?"production":"development",
     devServer: {
         historyApiFallback: true,
         port:9001,
@@ -45,7 +47,17 @@ const config = {
             },
             {
                 test: /\.less$/,
-                loader: "style-loader!css-loader!postcss-loader!less-loader",
+                loader: [
+                    "style-loader","css-loader","postcss-loader",
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            globalVars: {
+                               ...variables
+                            }
+                        }
+                    }
+                ],
 
             },
             {
@@ -83,7 +95,14 @@ const config = {
         }),
         new VueLoaderPlugin(),
     ],
-    resolve: { alias: { 'vue': 'vue/dist/vue.js' } }
+    resolve: {
+        // 集成省略扩展名
+        extensions: ['.js', '.json', '.less','.vue'],
+        alias: { 
+            'vue': 'vue/dist/vue.js',
+            '@': path.resolve(__dirname,'src')
+        } 
+    }
 };
 if (process.env.NODE_ENV === 'production') {
     config.plugins = (config.plugins || []).concat([
