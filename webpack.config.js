@@ -2,8 +2,9 @@ const webpack = require('webpack')
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const variables = require('./src/variable.js')
+
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const isPro = process.env.NODE_ENV == "production"
 
@@ -14,13 +15,15 @@ const config = {
     }, //项目入口文件
     output: {                    //输出编译后文件地址及文件名
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/bundle.js',
-        
+        // filename: 'js/bundle.js',
+        filename: 'js/[name].[hash].bundle.js',
+        chunkFilename: 'js/[name][chunkhash].js',
     },
     mode:isPro?"production":"development",
+    devtool: isPro?false:'source-map',
     devServer: {
         historyApiFallback: true,
-        port:9001,
+        port:9011,
         proxy: {
             "/api": {
               "target": "http://121.41.53.68:8085/api/",
@@ -87,6 +90,7 @@ const config = {
     //     ]
     // },         
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'react 学习',
             inject: 'body',
@@ -106,32 +110,23 @@ const config = {
 };
 if (process.env.NODE_ENV === 'production') {
     config.plugins = (config.plugins || []).concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production'),
-            },
-            IS_PRODUCTION: true
-        }),
-        new UglifyJsPlugin({
-            sourceMap: false,
-            uglifyOptions:{
-                compress: {warnings: false},
-                mangle: {
-                    safari10: true
-                }
-            }
-        }),
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         'NODE_ENV': JSON.stringify('production'),
+        //     },
+        //     IS_PRODUCTION: true
+        // })
     ]);
 }
 else {
     config.plugins = (config.plugins || []).concat([
-        new webpack.DefinePlugin({
-            'process.env':
-            {
-                'NODE_ENV': JSON.stringify('development'),
-            },
-            IS_PRODUCTION: false
-        }),
+        // new webpack.DefinePlugin({
+        //     'process.env':
+        //     {
+        //         'NODE_ENV': JSON.stringify('development'),
+        //     },
+        //     IS_PRODUCTION: false
+        // }),
     ]);
 }
 module.exports = config
