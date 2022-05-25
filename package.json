@@ -1,55 +1,20 @@
 {
-  "name": "'",
-  "version": "1.0.0",
-  "description": "vue 的webpack配置",
-  "main": "index.js",
+  "name": "vue3",
+  "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --progress --open",
-    "server": "node server index.js",
-    "build": "cross-env NODE_ENV=production webpack --progress --color --reason"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liubin915249126/webpack-vue.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/liubin915249126/webpack-vue/issues"
-  },
-  "homepage": "https://github.com/liubin915249126/webpack-vue#readme",
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-runtime": "^6.26.0",
-    "cross-env": "^5.1.0",
-    "css-loader": "^0.28.7",
-    "file-loader": "^1.1.5",
-    "html-webpack-plugin": "^3.2.0",
-    "koa": "^2.3.0",
-    "koa-router": "^7.2.1",
-    "koa2-cors": "^2.0.3",
-    "less": "^3.0.0-alpha.3",
-    "less-loader": "^4.0.5",
-    "style-loader": "^0.18.2",
-    "vue-hot-reload-api": "^2.1.0",
-    "vue-html-loader": "^1.2.4",
-    "vue-loader": "^15.6.1",
-    "vue-template-compiler": "^2.4.4",
-    "webpack": "^4.29.0",
-    "webpack-dev-server": "^3.1.14"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^0.18.1",
-    "element-ui": "^2.0.2",
-    "vue": "^2.4.4",
-    "vue-router": "^2.7.0",
-    "vue2-editor": "^2.0.26",
-    "vuex": "^2.4.0",
-    "webpack-cli": "^3.2.1"
+    "vue": "^3.2.25",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.7"
   }
 }
