@@ -3,10 +3,11 @@ import { createRouter,createWebHashHistory } from 'vue-router'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 
-import HelloWorld from './components/HelloWorld.vue'
+
+import User from './pages/user/index.vue'
 
 const routes = [
-    { path: '/', component: HelloWorld },
+    { path: '/user', component: User },
   ]
 
 const router = createRouter({
