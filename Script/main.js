@@ -44,7 +44,10 @@ const routes = [
             { path: '/main/video', name: 'draw', component: resolve => require(['./src/video/index.vue'], resolve) },
             { path: '/main/a', redirect: '/main' }
        ]
-    }
+    },
+    {
+        path: '/test', component: resolve => require(['./src/test/index.vue'], resolve)
+    },
 ]
 // 3. 创建 router 实例，然后传 `routes` 配置
 // 你还可以传别的配置参数, 不过先这么简单着吧。
