@@ -1,5 +1,4 @@
 import axios from 'axios';
-import qs from 'qs';
 import Vue from 'vue';
 let BASE_URL = 'http://localhost:3000';
 // let BASE_URL = 'http://192.168.1.183:8090'

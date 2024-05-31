@@ -1,7 +1,6 @@
 'use strict'
 
 import axios from 'axios'
-import qs from 'qs'
 
 axios.interceptors.request.use(config => {
     // loading
@@ -47,7 +46,7 @@ export default {
             method: 'post',
             baseURL: 'https://cnodejs.org/api/v1',
             url,
-            data: qs.stringify(data),
+            data: JSON,stringify(data),
             timeout: 10000,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
