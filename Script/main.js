@@ -42,6 +42,7 @@ const routes = [
             { path: '/main/apiconfig', name: 'apiconfig', component: resolve => require(['./src/apiconfig/index.vue'], resolve) },
             { path: '/main/draw', name: 'draw', component: resolve => require(['./src/draw/index.vue'], resolve) },
             { path: '/main/video', name: 'draw', component: resolve => require(['./src/video/index.vue'], resolve) },
+            { path: '/main/xlsx', name: 'xlsx', component: resolve => require(['./src/xlsx/index.vue'], resolve) },
             { path: '/main/a', redirect: '/main' }
        ]
     },

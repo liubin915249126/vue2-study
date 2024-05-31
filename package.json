@@ -50,6 +50,7 @@
     "vue-router": "^2.7.0",
     "vue2-editor": "^2.0.26",
     "vuex": "^2.4.0",
-    "webpack-cli": "^3.2.1"
+    "webpack-cli": "^3.2.1",
+    "xlsx": "^0.18.5"
   }
 }
