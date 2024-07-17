@@ -1,4 +1,5 @@
-{
+module.exports =  {
+  "e_0": "Success",
   "e_10": "no repeatable request(usercenter)",
   "e_12307": "Please enable at least two security verifications.",
   "e_-1706": "Invalid username",
@@ -100,5 +101,13 @@
   "e_-4": "Network error",
   "e_-3": "Param Error",
   "e_-2": "Database Error",
-  "e_-1": "Failure"
+  "e_-1": "Failure",
+  "e_44004": "DB_ERROR",
+  "e_42000": "SYSTEM_ERROR",
+  "e_42001": "REQUEST_TOO_FREQUENTLY",
+  "e_42003": "USER_NOT_LOGIN",
+  "e_42002": "PARAM_NOT_EMPTY",
+  "e_42005": "UN_KNOW_DESCRIPTION",
+  "e_42006": "LOCALE_CONFIG_NOT_EXIST",
+  "e_42007": "UP_LOCALE_NOT_SUPPORT_UPDATE_NAME",
 }
