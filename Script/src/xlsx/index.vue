@@ -98,7 +98,7 @@ export default {
       const enRes = {};
       const cnRes = {};
       data.map((item) => {
-        const code = `e_${item.Code}`;
+        const code = `e_${Math.abs(item.Code)}`;
         enRes[code] = item.Value;
         cnRes[code] = item.Translations;
       });
